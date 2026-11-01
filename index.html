@@ -104,7 +104,7 @@
       <p class="small" style="margin-top:16px">✓ 勾選結果只保存在自己裝置的瀏覽器，不會同步俾其他朋友；網站唔會收集個人資料。</p>
     </section>
   </main>
-  <footer class="footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">秋を旅する。</div><p class="footer-text">2026.11.12 — 11.18<br>少一點趕路，多一點記得。<br>Made for friends, with love from Kyushu.</p></div><div><span class="eyebrow">A SMALL NOTE</span><p class="footer-text">呢份係旅行規劃手帖，唔代表已預訂酒店、餐廳或租車。營業時間、車程、價格及交通安排出發前請再核對。</p></div></div><details style="margin-top:20px"><summary class="credits-toggle">圖片來源及授權（Wikimedia Commons）⌄</summary><div class="credits" id="credits"></div><p class="small">圖片按各原始檔案頁面的授權條款使用；如有姓名、授權或修改說明，以來源頁面為準。此網站沒有聲稱圖片顯示2026年實際紅葉情況。</p></details><p class="copyright">© 2026 KYUSHU AUTUMN JOURNAL · Travel notes in Traditional Chinese · 路線僅供參考</p></div></footer>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">秋を旅する。</div><p class="footer-text">2026.11.12 — 11.18<br>少一點趕路，多一點記得。<br>Made for friends, with love from Kyushu.</p></div><div><span class="eyebrow">A SMALL NOTE</span><p class="footer-text">呢份係旅行規劃手帖，唔代表已預訂酒店、餐廳或租車。營業時間、車程、價格及交通安排出發前請再核對。</p></div></div><details style="margin-top:20px"><summary class="credits-toggle">圖片來源及授權（Wikimedia Commons）⌄</summary><div class="credits" id="credits"></div><p class="small">圖片由 Wikimedia Commons 提供，透過網頁版面裁切顯示；攝影者、授權條款及來源詳情請參閱各檔案連結。此網站沒有聲稱圖片顯示2026年實際紅葉情況。</p></details><p class="copyright">© 2026 KYUSHU AUTUMN JOURNAL · Travel notes in Traditional Chinese · 路線僅供參考</p></div></footer>
   <div class="floating-actions" aria-label="快捷導覽"><a href="#itinerary">行程</a><a href="#unagi">鰻魚飯</a><a href="#essentials">還車</a><button type="button" data-share>分享 ↗</button></div>
   <script>
   (function(){
@@ -122,7 +122,8 @@
       eel:'Yanagawa eel steamed in a basket.JPG',
       yanagawa:'Bridge in Yanagawa.jpg'
     };
-    var photoAuthors={hero:'そらみみ',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki / トトト',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
+    var photoAuthors={hero:'そらみみ',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
+    var photoLicenses={hero:'CC BY-SA 4.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
     function wm(file){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width=1280';}
     function wiki(file){return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
     function map(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving';}
@@ -176,7 +177,7 @@
     }
     document.getElementById('daysList').innerHTML=days.map(renderDay).join('');
     document.getElementById('dayNav').innerHTML=days.map(function(d,i){return '<a class="date-chip'+(i===0?' active':'')+'" href="#day-'+(i+1)+'"><span class="num">'+String(i+1).padStart(2,'0')+'</span><span>'+esc(d.date)+'</span></a>';}).join('');
-    document.getElementById('credits').innerHTML=Object.keys(photos).map(function(key){return '<a href="'+esc(wiki(photos[key]))+'" target="_blank" rel="noopener noreferrer">'+esc(photos[key])+' — '+esc(photoAuthors[key])+' ↗</a>';}).join('');
+    document.getElementById('credits').innerHTML=Object.keys(photos).map(function(key){return '<a href="'+esc(wiki(photos[key]))+'" target="_blank" rel="noopener noreferrer">'+esc(photos[key])+' — '+esc(photoAuthors[key])+' · '+esc(photoLicenses[key])+' ↗</a>';}).join('');
     var store;try{store=window.localStorage;}catch(e){store=null;}
     document.querySelectorAll('input[data-day],input[data-prep]').forEach(function(input){var key=input.dataset.day!==undefined?'kyushu-day-'+input.dataset.day:'kyushu-prep-'+input.dataset.prep;try{input.checked=store&&store.getItem(key)==='1';}catch(e){}input.addEventListener('change',function(){try{if(store)store.setItem(key,input.checked?'1':'0');}catch(e){}});});
     function scrollProgress(){var max=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pageProgress').style.width=(max>0?window.scrollY/max*100:0)+'%';}window.addEventListener('scroll',scrollProgress,{passive:true});scrollProgress();
