@@ -171,7 +171,7 @@
         <div class="reveal"><span class="eyebrow">OUR LITTLE ESCAPE</span><h2>慢慢走，<br>把秋天收藏起來。</h2><p>唔趕景點，想睇楓葉、浸靚溫泉、食地道美食。由市區去山區，特別留足時間俾由布院、黑川溫泉，同埋專程去食嘅柳川鰻魚蒸籠飯。</p></div>
         <div class="intro-counts reveal"><div class="count"><strong>07</strong><small>旅程日數 DAYS</small></div><div class="count"><strong>06</strong><small>入住晚數 NIGHTS</small></div><div class="count"><strong>03</strong><small>溫泉住宿 ONSEN</small></div></div>
       </div>
-      <div class="route-card reveal"><div class="route-head"><div><span class="eyebrow">THE ROAD JOURNEY</span><h3>九州北部・秋色小環線</h3></div><span class="jp" style="color:#a26452;font-size:1.7rem">道</span></div><div class="route-line" aria-label="自駕行程路線"><span>福岡</span><i></i><b></b><span>門司港</span><i></i><b></b><span>耶馬溪</span><i></i><b></b><span>別府</span><i></i><b></b><span>由布院</span><i></i><b></b><span>九重</span><i></i><b></b><span>黑川</span><i></i><b></b><span>阿蘇</span><i></i><b></b><span>柳川</span><i></i><b></b><span>福岡</span></div><p class="route-note">取車：11/13 下午 · 還車：11/18 上午，福岡機場國際線附近租車營業所。網站內每個景點都可以一按開啟 Google Maps。</p></div>
+      <div class="route-card reveal"><div class="route-head"><div><span class="eyebrow">THE ROAD JOURNEY</span><h3>九州北部・秋色小環線</h3></div><span class="jp" style="color:#a26452;font-size:1.7rem">道</span></div><div class="route-line" aria-label="自駕行程路線"><span>福岡</span><i></i><b></b><span>門司港</span><i></i><b></b><span>耶馬溪</span><i></i><b></b><span>別府</span><i></i><b></b><span>由布院</span><i></i><b></b><span>九重</span><i></i><b></b><span>黑川</span><i></i><b></b><span>阿蘇</span><i></i><b></b><span>柳川</span><i></i><b></b><span>福岡</span></div><p class="route-note">最新規劃：11/12–11/13 福岡同一間住宿連住兩晚；擬 11/12 落機取車、11/18 上午還車（租車與住宿未確認）。11/14 門司港短遊＋唐戶市場＋耶馬溪會較趕，可按當日情況取捨。每個景點都可按 Google Maps 導航。</p></div>
     </section>
 
     <section class="container flight-section" id="flights" aria-label="已訂購香港航空航班和機場建議到達時間">
@@ -218,7 +218,7 @@
       <div class="gallery reveal"><figure class="gallery-figure"><img id="gallery1" alt="耶馬溪一目八景紅葉" loading="lazy"><figcaption>耶馬溪｜山谷楓紅</figcaption></figure><figure class="gallery-figure"><img id="gallery2" alt="九重夢大吊橋" loading="lazy"><figcaption>九重｜雲上吊橋</figcaption></figure><figure class="gallery-figure"><img id="gallery3" alt="柳川運河與小橋" loading="lazy"><figcaption>柳川｜水鄉慢行</figcaption></figure></div>
     </section>
     <section class="container toolkit" id="essentials">
-      <div class="section-head reveal" style="padding-top:0"><div><span class="eyebrow">TRAVEL NOTES & LITTLE REMINDERS</span><h2>出發前的小手帖。</h2></div><p>唔使到時搵唔返資料，重要連結都放喺度。</p></div>
+      <div class="section-head reveal" style="padding-top:0"><div><span class="eyebrow">TRAVEL NOTES & LITTLE REMINDERS</span><h2>出發前的小手帖。</h2></div><p>航班已經買好；酒店及租車仍在挑選。大濠公園已排在 11/13 早上。</p></div>
       <div class="toolgrid">
         <article class="toolcard reveal"><div class="symbol">一</div><h3>已訂航班 · 機場時間</h3><p><b>11/12 HX638：</b>香港 T2 08:15 → 福岡 12:25，<b>06:15 到香港機場</b>。<br><b>11/18 HX639：</b>福岡 13:25 → 香港 T1 16:40，<b>11:25 前到福岡國際線</b>。<br>香港航空 T2 Q行段辦登機，約07:15 截止。全程時間均以當地時區顯示。</p><a href="#flights">睇詳細已訂航班及寄艙建議 ↗</a></article>
         <article class="toolcard reveal"><div class="symbol">二</div><h3>機場還車計劃</h3><p>11/18 建議 10:30 左右到機場附近租車營業所還車，預留還車及接駁時間，目標 11:15–11:25 抵達國際線（起飛前約2小時）。參考 Nippon Rent-A-Car 國際線營業所，09:00 開門、還車後提供接駁車；以實際預訂嘅公司及營業所為準。</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2-7-42%20Hanmichibashi%2C%20Hakata-ku%2C%20Fukuoka&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">Nippon 國際線營業所導航 ↗</a></article>
@@ -262,21 +262,26 @@
     function route(stops){if(stops.length<2)return map(stops[0].q);var origin=stops[0].q, dest=stops[stops.length-1].q,mid=stops.slice(1,-1).map(function(x){return x.q;});return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(origin)+'&destination='+encodeURIComponent(dest)+'&travelmode=driving'+(mid.length?'&waypoints='+encodeURIComponent(mid.join('|')):'');}
     function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
     var days=[
-      {date:'11.12',dow:'THU / 四',dateText:'11月12日 · 星期四',tag:'抵達九州',title:'初見福岡・博多夜色',subtitle:'已訂 HX638：香港 T2 08:15 起飛（建議 06:15 到機場，即起飛前2小時），福岡當地 12:25 抵達；之後慢慢感受博多夜色。',drive:'市區不取車',image:'nakasu',stay:'福岡｜博多或天神',stops:[
-        {t:'12:25',name:'福岡機場國際線',sub:'HX638 抵達；辦入境及市區交通',q:'福岡空港 国際線旅客ターミナル'},
-        {t:'15:30',name:'櫛田神社／博多運河城',sub:'散步、逛街、感受博多氣氛',q:'櫛田神社 福岡市'},
-        {t:'19:00',name:'中洲屋台',sub:'夜間小食、博多拉麵，店舖以當日為準',q:'中洲屋台 福岡'}
+      {date:'11.12',dow:'THU / 四',dateText:'11月12日 · 星期四',tag:'抵達九州',title:'初見福岡・安頓二日市',subtitle:'已訂 HX638：香港 T2 08:15 起飛（建議 06:15 到機場），福岡當地 12:25 抵達。取車計劃尚未確定，抵埗後先安頓，再輕鬆行福岡。',drive:'落機取車計劃中',image:'nakasu',stay:'福岡｜二日市／春日市一帶（住宿待訂）',stops:[
+        {t:'12:25',name:'福岡機場國際線・HX638 抵達',sub:'入境、領行李；日本時間',q:'福岡空港 国際線旅客ターミナル'},
+        {t:'14:15',name:'福岡機場取租車（暫定）',sub:'如租車獲確認，預留取車及接駁時間；未訂之前以實際方案為準',q:'福岡空港 国際線旅客ターミナル'},
+        {t:'16:00',name:'櫛田神社／博多運河城（可選）',sub:'若入境及取車順利，傍晚可行街；否則直接去住宿',q:'櫛田神社 福岡市'},
+        {t:'18:30',name:'二日市／春日市住宿（待訂）',sub:'首晚休息；白梅別邸二日市為考慮中的選擇，尚未預訂',q:'白梅別邸 二日市 筑紫野市'}
       ]},
-      {date:'11.13',dow:'FRI / 五',dateText:'11月13日 · 星期五',tag:'海港懷舊',title:'沿著海岸，走進門司港',subtitle:'上午福岡散步，下午取車北上。黃昏的舊車站和紅磚港口，剛剛好。',drive:'約 1.5–2 小時',image:'mojiko',stay:'門司港／小倉',stops:[
-        {t:'09:30',name:'大濠公園',sub:'喝咖啡、湖畔散步，時間可調整',q:'大濠公園 福岡'},
-        {t:'13:00',name:'福岡取車',sub:'實際租車營業所以預訂確認書為準',q:'博多駅 筑紫口'},
-        {t:'15:00',name:'門司港懷舊區',sub:'港口建築、海峽散步、舊時光',q:'門司港レトロ'},
-        {t:'18:00',name:'門司港燒咖喱',sub:'晚餐試門司港名物',q:'門司港 焼きカレー'}
+      {date:'11.13',dow:'FRI / 五',dateText:'11月13日 · 星期五',tag:'湖畔散步',title:'大濠公園・天神慢旅',subtitle:'頭兩晚都留喺福岡一帶。早上去大濠公園及日本庭園，下午行天神，黃昏買和牛食材，夜晚返民宿自己煎（入住前確認容許烹調）。',drive:'市區遊覽；可搭西鐵／地鐵',image:'ohori',stay:'福岡｜與11/12同一住宿（待訂）',stops:[
+        {t:'09:30',name:'大濠公園 ★',sub:'湖畔散步、賞景及咖啡；公園免費',q:'大濠公園 福岡市'},
+        {t:'10:45',name:'大濠公園日本庭園',sub:'11月 09:00–17:00，成人入場¥250；想慢行可延長停留',q:'大濠公園日本庭園 福岡市'},
+        {t:'12:00',name:'天神周邊午餐',sub:'從大濠公園去天神約幾站地鐵；午餐時間可靈活調整',q:'天神 福岡市'},
+        {t:'13:30',name:'天神購物・咖啡街',sub:'百貨、地下街與福岡街景；留少少時間買手信',q:'天神地下街 福岡'},
+        {t:'16:30',name:'超市選和牛及晚餐食材',sub:'住二日市／春日市可以返住宿附近超市買；確認有煎牛扒廚具',q:'ロピア 福岡白水店'},
+        {t:'18:30',name:'返回兩房民宿・和牛晚餐',sub:'如果最後選白梅別邸，夜晚留喺民宿慢慢食；住宿尚未確認',q:'白梅別邸 二日市 筑紫野市'}
       ]},
-      {date:'11.14',dow:'SAT / 六',dateText:'11月14日 · 星期六',tag:'海鮮與楓紅',title:'唐戶市場，耶馬溪的紅',subtitle:'早上跨越關門海峽食壽司，午後深入耶馬溪賞楓；呢日車程最長，日落前到別府。',drive:'約 3.5–4.5 小時',image:'karato',stay:'別府｜鐵輪溫泉',stops:[
-        {t:'10:00',name:'下關唐戶市場',sub:'週末海鮮壽司；早到選擇較多',q:'唐戸市場 下関市'},
-        {t:'13:30',name:'深耶馬溪・一目八景',sub:'預留約 1–1.5 小時賞紅葉、拍照',q:'一目八景 展望台 大分県中津市'},
-        {t:'16:30',name:'別府鐵輪溫泉',sub:'提早入住，舒舒服服浸溫泉',q:'鉄輪温泉 別府'}
+      {date:'11.14',dow:'SAT / 六',dateText:'11月14日 · 星期六',tag:'海港與楓紅',title:'門司港・唐戶・耶馬溪',subtitle:'從福岡／二日市出發，門司港短遊、下關唐戶市場週末壽司、午後耶馬溪紅葉，傍晚往別府。呢日路線偏密，若想悠閒賞楓，建議略過門司港。',drive:'全日駕駛約 4.5–6 小時（估算）',image:'karato',stay:'別府｜鐵輪溫泉',stops:[
+        {t:'07:30',name:'福岡／二日市住宿出發',sub:'提早退房，自駕往北九州；按路況決定行程密度',q:'筑紫野市 二日市'},
+        {t:'09:00',name:'門司港懷舊區（可選短遊）',sub:'舊車站與海港建築；如想多留時間睇紅葉，可取消此站',q:'門司港レトロ'},
+        {t:'10:30',name:'下關唐戶市場',sub:'週末壽司午餐；當日營業及車位需再確認',q:'唐戸市場 下関市'},
+        {t:'13:30',name:'深耶馬溪・一目八景',sub:'重點紅葉景點，盡量留 1–1.5 小時；實際到達時間視乎路況',q:'一目八景 展望台 大分県中津市'},
+        {t:'17:00',name:'別府鐵輪溫泉',sub:'前往溫泉旅館入住；若有一泊二食須留意晚餐最遲時間',q:'鉄輪温泉 別府'}
       ]},
       {date:'11.15',dow:'SUN / 日',dateText:'11月15日 · 星期日',tag:'蒸氣與溫泉',title:'別府地獄，走進由布院',subtitle:'欣賞鈷藍色溫泉池，用地熱蒸煮午餐，下午行由布院的靜謐小店。',drive:'基本約 40–60 分鐘',image:'beppu',stay:'由布院｜一泊二食溫泉旅館',stops:[
         {t:'09:00',name:'海地獄',sub:'別府最具代表性的藍色溫泉池',q:'海地獄 別府'},
@@ -310,7 +315,7 @@
     document.getElementById('daysList').innerHTML=days.map(renderDay).join('');
 
     // Daily photos curated from Wikimedia Commons. File-page attribution remains visible at the bottom.
-    var dailyGalleries = [[["Nakasu Yatai Stalls (19979437930).jpg","中洲屋台・博多夜色","Yoshikazu TAKADA","CC BY 2.0"],["Kushida Shrine from North Shimmon 20140927.jpg","櫛田神社・博多古韻","そらみみ","CC BY-SA 4.0"],["Entrance of Canal City Hakata near Kushida Shrine.jpg","博多運河城・街角","そらみみ","CC BY-SA 4.0"],["Ohori Park, Fukuoka.JPG","大濠公園・湖畔散步","Masgatotkaca","CC BY-SA 3.0"]],[["View of Mojiko Station from Mojiko Retro.jpg","門司港車站・懷舊建築","Kirin7739","CC BY-SA 4.0"],["Mojiko Retro Area from Former Moji Customs.JPG","門司港・舊海關景色","そらみみ","CC BY-SA 4.0"],["Mojiko Retro Area at night 20181227-2.jpg","門司港・夜景燈影","そらみみ","CC BY-SA 4.0"],["Mojiko Retro Area from Karato Market.JPG","隔海遠眺門司港","そらみみ","CC BY-SA 4.0"]],[["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG","一目八景・耶馬溪紅葉","そらみみ","CC BY-SA 4.0"],["Inside view of Karato Fish Market (2)20200113.jpg","唐戶市場・週末美食","Rick888chen","CC BY-SA 4.0"],["View from 2nd floor of Karato Market (Mojiko Retro Area).JPG","唐戶市場・關門海峽","そらみみ","CC BY-SA 4.0"],["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-2.JPG","耶馬溪・山谷秋色","そらみみ","CC BY-SA 4.0"]],[["Umi Jigoku (Sea Hell) in Beppu.jpg","別府海地獄・湛藍溫泉","Bpcon98","CC0"],["Sea Hell Hot Spring 20171003-1.jpg","別府地熱・溫泉蒸氣","そらみみ","CC BY-SA 4.0"],["Beppu Jigoku-Meguri Street 20171003.jpg","別府・地獄巡禮街道","そらみみ","CC BY-SA 4.0"],["Yunotsubo-Yokocho in Yufuin Hot Spring.JPG","由布院・湯之坪小路","そらみみ","CC BY-SA 4.0"]],[["Lake Kinrin 20221022-1.jpg","由布院金鱗湖・秋日湖畔","Suicasmo","CC BY-SA 4.0"],["Kokonoe \"Yume\" Suspension Bridge 20131004.jpg","九重夢大吊橋・山谷景色","そらみみ","CC BY-SA 4.0"],["Kurokawa Onsen -温泉街.jpg","黑川溫泉・傳統街道","hiroooooki（編修：トトト）","CC BY 2.0"],["Kurokawa-onsen.jpg","黑川溫泉・露天風呂","Igorberger","CC BY-SA 3.0"]],[["Yanagawa eel steamed in a basket.JPG","柳川名物・鰻魚蒸籠飯示意（若松屋）","Sakaori","CC BY 3.0"],["A view of the five mountains of Aso from Daikanbo viewpoint.jpg","阿蘇大觀峰・火山群","STA3816","CC BY-SA 3.0"],["Yanagawa cruise ac (2).jpg","柳川川下り・水鄉慢遊","Asturio Cantabrio","CC BY-SA 4.0"],["Yanagawa cruise ac (7).jpg","柳川・小船遊河","Asturio Cantabrio","CC BY-SA 4.0"]],[["Fukuoka airport 20260910.jpg","福岡機場・2026年國際線航廈","Twotwo2019","CC BY 4.0"],["Fukuoka Airport FUK international departures 2025-03-30.jpg","福岡機場・2025年國際線出發區","ERIC SALARD","CC BY-SA 2.0"],["Fukuoka Airport International Terminal Departure Floor.jpg","福岡機場・2014年出發樓層舊照","Chihaya Sta","CC BY-SA 4.0"]]];
+    var dailyGalleries = [[["Nakasu Yatai Stalls (19979437930).jpg","中洲屋台・博多夜色","Yoshikazu TAKADA","CC BY 2.0"],["Kushida Shrine from North Shimmon 20140927.jpg","櫛田神社・博多古韻","そらみみ","CC BY-SA 4.0"],["Entrance of Canal City Hakata near Kushida Shrine.jpg","博多運河城・街角","そらみみ","CC BY-SA 4.0"],["Ohori Park, Fukuoka.JPG","大濠公園・湖畔散步","Masgatotkaca","CC BY-SA 3.0"]],[["Ohori Park 20170505-4.jpg","大濠公園・湖邊咖啡時光","そらみみ","CC BY-SA 4.0"],["Ohori Park near No Theater.jpg","大濠公園・湖面與綠意","そらみみ","CC BY-SA 4.0"],["Ohori Park, Fukuoka.JPG","大濠公園・湖畔風景","Masgatotkaca","CC BY-SA 3.0"],["Nakasu Yatai Stalls (19979437930).jpg","福岡市・中洲街景（晚間參考）","Yoshikazu TAKADA","CC BY 2.0"]],[["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG","一目八景・耶馬溪紅葉","そらみみ","CC BY-SA 4.0"],["Inside view of Karato Fish Market (2)20200113.jpg","唐戶市場・週末美食","Rick888chen","CC BY-SA 4.0"],["View from 2nd floor of Karato Market (Mojiko Retro Area).JPG","唐戶市場・關門海峽","そらみみ","CC BY-SA 4.0"],["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-2.JPG","耶馬溪・山谷秋色","そらみみ","CC BY-SA 4.0"]],[["Umi Jigoku (Sea Hell) in Beppu.jpg","別府海地獄・湛藍溫泉","Bpcon98","CC0"],["Sea Hell Hot Spring 20171003-1.jpg","別府地熱・溫泉蒸氣","そらみみ","CC BY-SA 4.0"],["Beppu Jigoku-Meguri Street 20171003.jpg","別府・地獄巡禮街道","そらみみ","CC BY-SA 4.0"],["Yunotsubo-Yokocho in Yufuin Hot Spring.JPG","由布院・湯之坪小路","そらみみ","CC BY-SA 4.0"]],[["Lake Kinrin 20221022-1.jpg","由布院金鱗湖・秋日湖畔","Suicasmo","CC BY-SA 4.0"],["Kokonoe \"Yume\" Suspension Bridge 20131004.jpg","九重夢大吊橋・山谷景色","そらみみ","CC BY-SA 4.0"],["Kurokawa Onsen -温泉街.jpg","黑川溫泉・傳統街道","hiroooooki（編修：トトト）","CC BY 2.0"],["Kurokawa-onsen.jpg","黑川溫泉・露天風呂","Igorberger","CC BY-SA 3.0"]],[["Yanagawa eel steamed in a basket.JPG","柳川名物・鰻魚蒸籠飯示意（若松屋）","Sakaori","CC BY 3.0"],["A view of the five mountains of Aso from Daikanbo viewpoint.jpg","阿蘇大觀峰・火山群","STA3816","CC BY-SA 3.0"],["Yanagawa cruise ac (2).jpg","柳川川下り・水鄉慢遊","Asturio Cantabrio","CC BY-SA 4.0"],["Yanagawa cruise ac (7).jpg","柳川・小船遊河","Asturio Cantabrio","CC BY-SA 4.0"]],[["Fukuoka airport 20260910.jpg","福岡機場・2026年國際線航廈","Twotwo2019","CC BY 4.0"],["Fukuoka Airport FUK international departures 2025-03-30.jpg","福岡機場・2025年國際線出發區","ERIC SALARD","CC BY-SA 2.0"],["Fukuoka Airport International Terminal Departure Floor.jpg","福岡機場・2014年出發樓層舊照","Chihaya Sta","CC BY-SA 4.0"]]];
     function installCarousels(){
       dailyGalleries.forEach(function(gallery,i){
         var card=document.getElementById('day-'+(i+1));
