@@ -105,6 +105,9 @@
     @media(max-width:760px){.photo-carousel .carousel-caption{bottom:49px;left:19px;right:19px}.photo-carousel .carousel-caption strong{font-size:.91rem}.photo-carousel .carousel-footer{left:19px;right:19px}.carousel-arrow{width:35px;height:42px}.carousel-hint{font-size:.6rem}}
     @media(prefers-reduced-motion:reduce){.photo-carousel .carousel-slide,.carousel-dot{transition:none!important}}
 
+    /* Scheme A: a gentle Kinrin Lake hero, with Yabakei foliage in the small inset. */
+    .hero-main img{object-position:50% 50%;filter:saturate(1.05) contrast(1.02)}
+    .hero-inset img{object-position:52% 50%;filter:saturate(1.10) contrast(1.04)}
   </style>
 </head>
 <body>
@@ -126,8 +129,8 @@
       </div>
       <div class="hero-visual">
         <svg class="maple-branch" viewBox="0 0 130 150" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path class="twig" d="M0 8C44 18 67 37 88 58S107 96 119 138M41 26Q37 57 16 75M72 45Q83 23 105 16M91 64Q70 82 56 103"/><g transform="translate(13 57) rotate(-18) scale(.3)"><path class="foliage" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g><g transform="translate(80 1) rotate(12) scale(.4)"><path class="gold" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g><g transform="translate(36 83) rotate(-10) scale(.4)"><path class="wine" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g><g transform="translate(86 94) rotate(30) scale(.35)"><path class="foliage" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g></svg>
-        <div class="hero-main"><img id="heroPic" alt="耶馬溪紅葉峽谷景色" fetchpriority="high"><span class="hero-caption">深耶馬溪 · 一目八景</span></div>
-        <div class="hero-inset"><img id="heroInset" alt="由布院金鱗湖秋景"></div>
+        <div class="hero-main"><img id="heroPic" alt="由布院金鱗湖秋景，湖中鳥居與自然風景" fetchpriority="high"><span class="hero-caption">由布院 · 金鱗湖の秋</span></div>
+        <div class="hero-inset"><img id="heroInset" alt="深耶馬溪紅葉與秋日山谷風景"></div>
         <div class="hero-seal"><span>秋の旅</span><strong>九州</strong><span>二〇二六</span></div>
         <div class="vertical-text">紅葉の季節に、旅に出よう。</div><div class="hero-circle">旅の記憶</div>
         <svg class="leaf one" viewBox="0 0 40 40" aria-hidden="true"><path fill="#b76849" d="M19 0c7 12 17 14 20 19-11 3-17 12-19 21C17 27 8 26 0 18 11 15 14 8 19 0z"/></svg>
@@ -181,6 +184,8 @@
     'use strict';
     var photos = {
       hero:'Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG',
+      heroMain:'Lake Kinrin in Yufuin, Oita - October 2026 (04).jpg',
+      heroInset:'Garden of “Auberge Kaedenoki” and Shin-Yabakei Valley.JPG',
       lake:'Lake Kinrin 20221022-1.jpg',
       nakasu:'Nakasu Yatai Stalls (19979437930).jpg',
       mojiko:'View of Mojiko Station from Mojiko Retro.jpg',
@@ -192,8 +197,8 @@
       eel:'Yanagawa eel steamed in a basket.JPG',
       yanagawa:'Bridge in Yanagawa.jpg'
     };
-    var photoAuthors={hero:'そらみみ',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
-    var photoLicenses={hero:'CC BY-SA 4.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
+    var photoAuthors={hero:'そらみみ',heroMain:'Ivan P',heroInset:'そらみみ',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
+    var photoLicenses={hero:'CC BY-SA 4.0',heroMain:'CC0 1.0',heroInset:'CC BY-SA 4.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
     function wm(file){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width=1280';}
     function wiki(file){return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
     function map(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving';}
@@ -240,7 +245,7 @@
       ]}
     ];
     function setPhoto(el,key){var file=photos[key];if(!el||!file)return;el.src=wm(file);el.onerror=function(){el.onerror=null;el.style.opacity=0;};}
-    setPhoto(document.getElementById('heroPic'),'hero');setPhoto(document.getElementById('heroInset'),'lake');setPhoto(document.getElementById('eelPic'),'eel');setPhoto(document.getElementById('gallery1'),'hero');setPhoto(document.getElementById('gallery2'),'bridge');setPhoto(document.getElementById('gallery3'),'yanagawa');
+    setPhoto(document.getElementById('heroPic'),'heroMain');setPhoto(document.getElementById('heroInset'),'heroInset');setPhoto(document.getElementById('eelPic'),'eel');setPhoto(document.getElementById('gallery1'),'hero');setPhoto(document.getElementById('gallery2'),'bridge');setPhoto(document.getElementById('gallery3'),'yanagawa');
     function renderDay(d,i){
       var st=d.stops.map(function(s){return '<div class="stop"><span class="stop-time">'+esc(s.t)+'</span><div class="stop-main"><strong>'+esc(s.name)+'</strong><small>'+esc(s.sub)+'</small></div><a class="map-link" href="'+esc(map(s.q))+'" target="_blank" rel="noopener noreferrer" aria-label="Google Maps 導航到'+esc(s.name)+'">導航 ↗</a></div>';}).join('');
       return '<article class="day reveal" id="day-'+(i+1)+'"><div class="day-media"><img loading="lazy" decoding="async" src="'+esc(wm(photos[d.image]))+'" alt="'+esc(d.title)+'參考照片" onerror="this.style.opacity=0"><div class="day-vertical">DAY '+String(i+1).padStart(2,'0')+' · '+esc(d.tag)+'</div><div class="day-image-credit">'+esc(d.dateText)+'</div></div><div class="day-content"><div class="day-top"><span>'+esc(d.dow)+' · '+esc(d.date)+'</span><span class="drive-tag">🚗 '+esc(d.drive)+'</span></div><h3>'+esc(d.title)+'</h3><p class="day-desc">'+esc(d.subtitle)+'</p><div class="stops">'+st+'</div><div class="day-bottom"><span class="stay">泊：<b>'+esc(d.stay)+'</b></span><a class="route-link" href="'+esc(route(d.stops))+'" target="_blank" rel="noopener noreferrer">查看整日路線 ↗</a><label class="done"><input type="checkbox" data-day="'+i+'" aria-label="標記第'+(i+1)+'日已完成"> 已完成</label></div></div></article>';
