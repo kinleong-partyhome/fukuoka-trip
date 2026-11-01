@@ -258,7 +258,7 @@
       </div>
       <div class="cover-footer">
         <span>FUKUOKA · OITA · KUMAMOTO · SAGA</span>
-        <a href="https://commons.wikimedia.org/wiki/File:%E5%BE%A1%E8%88%B9%E5%B1%B1%E6%A5%BD%E5%9C%92%E3%81%AE%E7%B4%85%E8%91%89_-_panoramio_(1).jpg" target="_blank" rel="noopener noreferrer">御船山楽園 · Photo by Yuji Sakamoto / CC BY-SA 3.0 ↗</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Autumn_Mifuneyama_(49578027122).jpg" target="_blank" rel="noopener noreferrer">御船山楽園 · Photo by Raita Futo / CC BY 2.0 · cropped ↗</a>
       </div>
       <a class="cover-scroll" href="#overview" aria-label="往下查看旅程概覽">SCROLL <span aria-hidden="true">↓</span></a>
     </section>
@@ -339,7 +339,7 @@
     'use strict';
     var photos = {
       hero:'Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG',
-      heroMain:'御船山楽園の紅葉 - panoramio (1).jpg',
+      heroMain:'Autumn Mifuneyama (49578027122).jpg',
       heroInset:'御船山楽園の紅葉 - panoramio.jpg',
       lake:'Lake Kinrin 20221022-1.jpg',
       nakasu:'Nakasu Yatai Stalls (19979437930).jpg',
@@ -352,9 +352,9 @@
       eel:'Yanagawa eel steamed in a basket.JPG',
       yanagawa:'Bridge in Yanagawa.jpg'
     };
-    var photoAuthors={hero:'そらみみ',heroMain:'Yuji Sakamoto',heroInset:'Yuji Sakamoto',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
-    var photoLicenses={hero:'CC BY-SA 4.0',heroMain:'CC BY-SA 3.0',heroInset:'CC BY-SA 3.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
-    function wm(file){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width=1280';}
+    var photoAuthors={hero:'そらみみ',heroMain:'Raita Futo',heroInset:'Yuji Sakamoto',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
+    var photoLicenses={hero:'CC BY-SA 4.0',heroMain:'CC BY 2.0',heroInset:'CC BY-SA 3.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
+    function wm(file,width){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+(width||1280);}
     function wiki(file){return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
     function map(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving';}
     function route(stops){if(stops.length<2)return map(stops[0].q);var origin=stops[0].q, dest=stops[stops.length-1].q,mid=stops.slice(1,-1).map(function(x){return x.q;});return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(origin)+'&destination='+encodeURIComponent(dest)+'&travelmode=driving'+(mid.length?'&waypoints='+encodeURIComponent(mid.join('|')):'');}
@@ -404,7 +404,7 @@
         {t:'13:25',name:'HX639 返香港',sub:'預計香港時間 16:40 抵達',q:'福岡空港 国際線旅客ターミナル'}
       ]}
     ];
-    function setPhoto(el,key){var file=photos[key];if(!el||!file)return;el.src=wm(file);el.onerror=function(){el.onerror=null;el.style.opacity=0;};}
+    function setPhoto(el,key){var file=photos[key];if(!el||!file)return;el.src=wm(file,key==='heroMain'?2048:1280);el.onerror=function(){el.onerror=null;el.style.opacity=0;};}
     setPhoto(document.getElementById('heroPic'),'heroMain');setPhoto(document.getElementById('eelPic'),'eel');setPhoto(document.getElementById('gallery1'),'hero');setPhoto(document.getElementById('gallery2'),'bridge');setPhoto(document.getElementById('gallery3'),'yanagawa');
     function renderDay(d,i){
       var st=d.stops.map(function(s){return '<div class="stop"><span class="stop-time">'+esc(s.t)+'</span><div class="stop-main"><strong>'+esc(s.name)+'</strong><small>'+esc(s.sub)+'</small></div><a class="map-link" href="'+esc(map(s.q))+'" target="_blank" rel="noopener noreferrer" aria-label="Google Maps 導航到'+esc(s.name)+'">導航 ↗</a></div>';}).join('');
