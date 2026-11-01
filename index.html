@@ -134,35 +134,133 @@
     .flight-note{font-size:.72rem;color:var(--muted);line-height:2;margin:16px 0 0}
     @media(max-width:760px){.flight-section{padding-top:20px}.flight-grid{grid-template-columns:1fr;gap:13px}.flight-card{padding:23px 20px 22px}.flight-path{grid-template-columns:minmax(0,1fr) 31px minmax(0,1fr)}.flight-time{font-size:1.76rem}.flight-place{font-size:.66rem}}
 
+
+    /* Full-bleed editorial autumn cover. Overrides the original two-column hero. */
+    .topbar.magazine-topbar{
+      position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:49;
+      background:transparent;backdrop-filter:none;border-bottom:1px solid rgba(255,249,238,.32);color:#fff8ec
+    }
+    .magazine-topbar .brand-mark{color:#fff9f1;border-color:#fff5e6;background:rgba(9,24,19,.16)}
+    .magazine-topbar .brand-text small{color:#f7e9cf}
+    .magazine-topbar .nav-share{color:#fff8ef;border-color:#fff8ef;background:rgba(12,22,16,.12)}
+    .magazine-topbar .nav-share:hover{color:#fff;background:rgba(255,250,242,.18)}
+    .magazine-topbar .desktop-nav a:hover{color:#f9d49e}
+    .hero.magazine-cover{
+      width:100%;max-width:none;margin:0;min-height:100vh;min-height:100svh;
+      display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+      padding:165px max(6vw,calc((100vw - 1180px)/2)) 102px;
+      position:relative;isolation:isolate;overflow:hidden;background:#25382e;color:#fff9ef
+    }
+    .hero.magazine-cover:before{
+      content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+      background:
+        linear-gradient(180deg,rgba(9,23,17,.57) 0%,rgba(9,23,17,.06) 27%,rgba(9,23,17,.06) 42%,rgba(9,23,17,.38) 59%,rgba(8,22,17,.91) 100%),
+        linear-gradient(90deg,rgba(9,20,15,.40) 0%,rgba(9,20,15,.08) 83%,rgba(9,20,15,.15) 100%)
+    }
+    .magazine-cover .cover-photo{position:absolute;inset:0;z-index:0;background:linear-gradient(145deg,#af6346,#273e30)}
+    .magazine-cover .cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:saturate(1.11) contrast(1.04);background:transparent}
+    .magazine-cover .cover-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.64' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
+    .magazine-cover .cover-edition{
+      position:absolute;z-index:3;right:7%;top:115px;width:104px;height:104px;
+      border:1px solid rgba(255,246,226,.83);outline:5px solid rgba(255,246,226,.10);
+      border-radius:100%;background:rgba(18,31,22,.22);display:flex;flex-direction:column;
+      align-items:center;justify-content:center;color:#fff4e0;transform:rotate(10deg);
+      font-family:var(--serif);line-height:1.3
+    }
+    .magazine-cover .cover-edition strong{font:500 1.5rem var(--serif);letter-spacing:.13em;margin:4px 0}
+    .magazine-cover .cover-edition small{font-size:.54rem;letter-spacing:.12em;text-align:center}
+    .magazine-cover .cover-body{position:relative;z-index:3;width:min(700px,100%);margin:0}
+    .magazine-cover .cover-eyebrow{font:600 .69rem var(--sans);letter-spacing:.24em;color:#f8dfb9;margin:0 0 18px}
+    .magazine-cover .cover-eyebrow span{padding:0 5px;color:#f1a975}
+    .magazine-cover h1{font:500 clamp(4.3rem,8.4vw,8rem)/.99 var(--serif);letter-spacing:-.08em;color:#fff9ed;margin:0 0 18px;text-shadow:0 3px 27px #08140d7d}
+    .magazine-cover h1 span{display:block;margin-left:.23em;color:#fff8ed}
+    .magazine-cover .cover-japanese{font:500 .89rem var(--serif);letter-spacing:.22em;color:#f3cfa3;margin:0 0 18px}
+    .magazine-cover h2{font:500 clamp(1.03rem,1.7vw,1.4rem)/1.6 var(--serif);letter-spacing:.09em;color:#fff8ed;margin:0 0 8px}
+    .magazine-cover .cover-description{font-size:.81rem;line-height:1.9;color:#fff8eae8;margin:0 0 24px;text-shadow:0 2px 15px #11251c89}
+    .magazine-cover .cover-tags{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin:0 0 22px}
+    .magazine-cover .cover-tags span{font-size:.72rem;letter-spacing:.06em;border-top:1px solid #ffffff85;padding-top:9px;color:#f9e9d1}
+    .magazine-cover .cover-buttons{display:flex;flex-wrap:wrap;gap:10px}
+    .magazine-cover .cover-buttons a{
+      display:flex;align-items:center;justify-content:space-between;gap:22px;
+      border:1px solid rgba(255,251,238,.7);padding:13px 19px;min-width:156px;
+      color:#fffaf0;background:#132b2080;backdrop-filter:blur(8px);
+      font-size:.8rem;transition:background .2s,transform .2s
+    }
+    .magazine-cover .cover-buttons a:first-child{background:#f5e9d7;color:#273b30;border-color:#f5e9d7}
+    .magazine-cover .cover-buttons a:hover{transform:translateY(-2px);background:#305a42}
+    .magazine-cover .cover-buttons a:first-child:hover{background:#fff6e9}
+    .magazine-cover .cover-footer{
+      position:absolute;z-index:3;bottom:18px;left:max(6vw,calc((100vw - 1180px)/2));
+      right:max(6vw,calc((100vw - 1180px)/2));display:flex;align-items:center;
+      justify-content:space-between;gap:15px;flex-wrap:wrap;
+      border-top:1px solid #fff8e980;padding-top:12px;font-size:.56rem;
+      letter-spacing:.06em;color:#f6e9cecc
+    }
+    .magazine-cover .cover-footer a{text-decoration:underline;text-underline-offset:3px}
+    .magazine-cover .cover-scroll{position:absolute;right:5vw;bottom:80px;z-index:3;writing-mode:vertical-rl;letter-spacing:.18em;font-size:.6rem;color:#f9e6c6}
+    .magazine-cover .cover-scroll span{font-size:1rem}
+    @media(max-width:760px){
+      .hero.magazine-cover{
+        min-height:100vh;min-height:100dvh;width:100%;max-width:none;margin:0;
+        display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+        padding:clamp(205px,30svh,340px) 23px 100px
+      }
+      .magazine-cover .cover-photo img{object-position:54% 41%}
+      .hero.magazine-cover:before{background:linear-gradient(180deg,rgba(10,24,18,.62) 0%,rgba(10,24,18,.06) 22%,rgba(10,24,18,.12) 37%,rgba(10,24,18,.46) 49%,rgba(7,21,15,.91) 73%,rgba(7,21,15,.97) 100%)}
+      .magazine-cover .cover-edition{right:19px;top:88px;width:79px;height:79px}
+      .magazine-cover .cover-edition strong{font-size:1.1rem}
+      .magazine-cover .cover-edition small{font-size:.46rem}
+      .magazine-cover .cover-eyebrow{font-size:.58rem;letter-spacing:.13em;margin-bottom:12px}
+      .magazine-cover h1{font-size:clamp(3.3rem,14vw,5.35rem);line-height:1.0;margin-bottom:13px}
+      .magazine-cover .cover-japanese{font-size:.69rem;letter-spacing:.10em;margin-bottom:14px}
+      .magazine-cover h2{font-size:.95rem;letter-spacing:.01em;line-height:1.5;margin-bottom:7px}
+      .magazine-cover .cover-description{font-size:.70rem;line-height:1.7;margin-bottom:17px}
+      .magazine-cover .cover-description br{display:none}
+      .magazine-cover .cover-tags{gap:11px;margin-bottom:17px}
+      .magazine-cover .cover-tags span{padding-top:7px;font-size:.6rem}
+      .magazine-cover .cover-buttons{flex-wrap:nowrap}
+      .magazine-cover .cover-buttons a{flex:1;min-width:0;min-height:43px;padding:11px 13px;font-size:.74rem}
+      .magazine-cover .cover-footer{left:23px;right:23px;bottom:16px;gap:6px;font-size:.47rem}
+      .magazine-cover .cover-scroll{display:none}
+    }
+    @media(max-width:390px){
+      .hero.magazine-cover{padding:190px 19px 100px}
+      .magazine-cover h1{font-size:clamp(3.2rem,13vw,4.1rem)}
+      .magazine-cover .cover-footer{left:19px;right:19px}
+    }
+    @media(prefers-reduced-motion:reduce){.magazine-cover .cover-buttons a{transition:none}}
+
   </style>
 </head>
 <body>
   <div class="momiji-rain" aria-hidden="true"><span class="maple-drop" style="--x:3%;--delay:-4s;--dur:20s;--size:21px;--color:#a44e32"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:13%;--delay:-16s;--dur:26s;--size:27px;--color:#d3a05c"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:24%;--delay:-8s;--dur:22s;--size:18px;--color:#934537"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:38%;--delay:-23s;--dur:32s;--size:23px;--color:#bd7040"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:51%;--delay:-11s;--dur:25s;--size:15px;--color:#aa533a"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:64%;--delay:-18s;--dur:29s;--size:28px;--color:#cf974f"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:79%;--delay:-5s;--dur:25s;--size:20px;--color:#983f31"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:88%;--delay:-21s;--dur:31s;--size:16px;--color:#bd6346"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:94%;--delay:-9s;--dur:22s;--size:25px;--color:#a84c36"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:31%;--delay:-26s;--dur:34s;--size:19px;--color:#cb7b4d"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:70%;--delay:-14s;--dur:28s;--size:22px;--color:#bf8953"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span></div>
   <div class="top-progress" id="pageProgress" aria-hidden="true"></div>
-  <header class="container topbar">
+  <header class="container topbar magazine-topbar">
     <a class="brand" href="#top" aria-label="回到網站頂部"><span class="brand-mark">旅</span><span class="brand-text">秋を旅する。<small>KYUSHU AUTUMN JOURNAL</small></span></a>
     <nav class="desktop-nav" aria-label="主要導覽"><a href="#overview">旅程概覽</a><a href="#flights">已訂航班</a><a href="#itinerary">七日行程</a><a href="#unagi">柳川鰻魚飯</a><a href="#essentials">出發手帖</a><button type="button" class="nav-share" data-share>分享行程 ↗</button></nav>
   </header>
   <main id="top">
-    <section class="container hero">
-      <div class="hero-left reveal in-view">
-        <p class="eyebrow hero-kicker">2026 · AUTUMN IN KYUSHU</p><div class="autumn-stamp"><svg aria-hidden="true" viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg><span>紅葉狩り · MOMIJI EDITION</span></div>
-        <h1>秋を<br><em>旅する。</em></h1>
-        <h2>一場與紅葉、山川、溫泉的約會</h2>
-        <p class="hero-copy">從福岡的街角出發，經過門司港的舊時光、耶馬溪的楓紅、九重的雲霧。最後，在柳川的一碗鰻魚飯裡，為秋日旅程留下回味。</p>
-        <div class="hero-meta"><span><span class="dot"></span> 11.12 — 11.18</span><span><span class="dot"></span> 七日六夜</span><span><span class="dot"></span> 九州自駕</span></div>
-        <div class="hero-actions"><a class="btn" href="#itinerary">開始旅程 <span aria-hidden="true">↗</span></a><a class="btn ghost" href="#unagi">柳川美食特集 <span aria-hidden="true">→</span></a></div>
+    <section class="hero magazine-cover" id="cover" aria-label="九州秋日旅遊雜誌封面">
+      <div class="cover-photo"><img id="heroPic" alt="佐賀御船山樂園紅葉與湖景" fetchpriority="high" decoding="async"></div>
+      <div class="cover-grain" aria-hidden="true"></div>
+      <div class="cover-edition" aria-hidden="true"><small>AUTUMN<br>EDITION</small><strong>九州</strong><small>2026</small></div>
+      <div class="cover-body reveal in-view">
+        <p class="cover-eyebrow">紅葉狩り <span>·</span> KYUSHU AUTUMN JOURNAL</p>
+        <h1>秋を<span>旅する。</span></h1>
+        <p class="cover-japanese">紅葉と温泉をめぐる、七日間。</p>
+        <h2>一場與紅葉、山川、溫泉的約會。</h2>
+        <p class="cover-description">從福岡的街角出發，穿過九州的紅葉與溫泉。<br>最後，在柳川的一碗鰻魚飯裡，為秋日旅程留下回味。</p>
+        <div class="cover-tags"><span>2026.11.12 — 11.18</span><span>七日六夜</span><span>九州自駕</span></div>
+        <div class="cover-buttons">
+          <a href="#itinerary">開始旅程 <span aria-hidden="true">↗</span></a>
+          <a href="#flights">已訂航班 <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-      <div class="hero-visual">
-        <svg class="maple-branch" viewBox="0 0 130 150" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path class="twig" d="M0 8C44 18 67 37 88 58S107 96 119 138M41 26Q37 57 16 75M72 45Q83 23 105 16M91 64Q70 82 56 103"/><g transform="translate(13 57) rotate(-18) scale(.3)"><path class="foliage" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g><g transform="translate(80 1) rotate(12) scale(.4)"><path class="gold" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g><g transform="translate(36 83) rotate(-10) scale(.4)"><path class="wine" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g><g transform="translate(86 94) rotate(30) scale(.35)"><path class="foliage" d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z"/></g></svg>
-        <div class="hero-main"><img id="heroPic" alt="佐賀縣御船山樂園紅葉與湖面倒影，大片楓紅橙葉" fetchpriority="high"><span class="hero-caption">佐賀 · 御船山楽園の紅葉</span></div>
-        <div class="hero-inset"><img id="heroInset" alt="佐賀縣御船山樂園火紅楓葉特寫"></div>
-        <div class="hero-seal"><span>秋の旅</span><strong>九州</strong><span>二〇二六</span></div>
-        <div class="vertical-text">紅葉の季節に、旅に出よう。</div><div class="hero-circle">旅の記憶</div>
-        <svg class="leaf one" viewBox="0 0 40 40" aria-hidden="true"><path fill="#b76849" d="M19 0c7 12 17 14 20 19-11 3-17 12-19 21C17 27 8 26 0 18 11 15 14 8 19 0z"/></svg>
-        <svg class="leaf two" viewBox="0 0 40 40" aria-hidden="true"><path fill="#c79b66" d="M19 0c7 12 17 14 20 19-11 3-17 12-19 21C17 27 8 26 0 18 11 15 14 8 19 0z"/></svg>
-        <svg class="leaf three" viewBox="0 0 40 40" aria-hidden="true"><path fill="#a3523d" d="M19 0c7 12 17 14 20 19-11 3-17 12-19 21C17 27 8 26 0 18 11 15 14 8 19 0z"/></svg>
+      <div class="cover-footer">
+        <span>FUKUOKA · OITA · KUMAMOTO · SAGA</span>
+        <a href="https://commons.wikimedia.org/wiki/File:%E5%BE%A1%E8%88%B9%E5%B1%B1%E6%A5%BD%E5%9C%92%E3%81%AE%E7%B4%85%E8%91%89_-_panoramio_(1).jpg" target="_blank" rel="noopener noreferrer">御船山楽園 · Photo by Yuji Sakamoto / CC BY-SA 3.0 ↗</a>
       </div>
+      <a class="cover-scroll" href="#overview" aria-label="往下查看旅程概覽">SCROLL <span aria-hidden="true">↓</span></a>
     </section>
     <div class="season-divider container"><svg aria-hidden="true" viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg><span>紅葉狩り · KYUSHU AUTUMN · 霜月</span><svg aria-hidden="true" viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></div>
     <div class="quote-band"><div class="container quote-inner"><p>「旅の途中に、心ほどける時間を。」</p><span>FUKUOKA · OITA · KUMAMOTO · YAMAGUCHI</span></div></div>
@@ -307,7 +405,7 @@
       ]}
     ];
     function setPhoto(el,key){var file=photos[key];if(!el||!file)return;el.src=wm(file);el.onerror=function(){el.onerror=null;el.style.opacity=0;};}
-    setPhoto(document.getElementById('heroPic'),'heroMain');setPhoto(document.getElementById('heroInset'),'heroInset');setPhoto(document.getElementById('eelPic'),'eel');setPhoto(document.getElementById('gallery1'),'hero');setPhoto(document.getElementById('gallery2'),'bridge');setPhoto(document.getElementById('gallery3'),'yanagawa');
+    setPhoto(document.getElementById('heroPic'),'heroMain');setPhoto(document.getElementById('eelPic'),'eel');setPhoto(document.getElementById('gallery1'),'hero');setPhoto(document.getElementById('gallery2'),'bridge');setPhoto(document.getElementById('gallery3'),'yanagawa');
     function renderDay(d,i){
       var st=d.stops.map(function(s){return '<div class="stop"><span class="stop-time">'+esc(s.t)+'</span><div class="stop-main"><strong>'+esc(s.name)+'</strong><small>'+esc(s.sub)+'</small></div><a class="map-link" href="'+esc(map(s.q))+'" target="_blank" rel="noopener noreferrer" aria-label="Google Maps 導航到'+esc(s.name)+'">導航 ↗</a></div>';}).join('');
       return '<article class="day reveal" id="day-'+(i+1)+'"><div class="day-media"><img loading="lazy" decoding="async" src="'+esc(wm(photos[d.image]))+'" alt="'+esc(d.title)+'參考照片" onerror="this.style.opacity=0"><div class="day-vertical">DAY '+String(i+1).padStart(2,'0')+' · '+esc(d.tag)+'</div><div class="day-image-credit">'+esc(d.dateText)+'</div></div><div class="day-content"><div class="day-top"><span>'+esc(d.dow)+' · '+esc(d.date)+'</span><span class="drive-tag">🚗 '+esc(d.drive)+'</span></div><h3>'+esc(d.title)+'</h3><p class="day-desc">'+esc(d.subtitle)+'</p><div class="stops">'+st+'</div><div class="day-bottom"><span class="stay">泊：<b>'+esc(d.stay)+'</b></span><a class="route-link" href="'+esc(route(d.stops))+'" target="_blank" rel="noopener noreferrer">查看整日路線 ↗</a><label class="done"><input type="checkbox" data-day="'+i+'" aria-label="標記第'+(i+1)+'日已完成"> 已完成</label></div></div></article>';
