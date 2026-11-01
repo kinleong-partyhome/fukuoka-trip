@@ -77,6 +77,34 @@
     .maple-branch .foliage{fill:#b35337;opacity:.9}.maple-branch .gold{fill:#d09a58}.maple-branch .wine{fill:#913f32}
     @media(max-width:760px){.momiji-rain .maple-drop:nth-child(n+8){display:none}.maple-drop{opacity:.16}.maple-branch{left:0;top:32px;width:90px}.season-divider{font-size:.68rem;gap:11px}.hero-main{outline-offset:4px}.day:nth-child(3) .day-media:before,.day:nth-child(5) .day-media:before{top:15px;right:12px;font-size:.6rem;padding:7px 9px}}
     @media(prefers-reduced-motion:reduce){.momiji-rain{display:none}.maple-branch{animation:none}}
+
+    /* Swipe-friendly daily photo carousels; photo navigation does not affect driving links */
+    .photo-carousel{isolation:isolate;touch-action:pan-y}
+    .photo-carousel .carousel-track{position:absolute;inset:0;z-index:1}
+    .photo-carousel .carousel-slide{position:absolute;inset:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s ease,visibility .6s}
+    .photo-carousel .carousel-slide.active{opacity:1;visibility:visible}
+    .photo-carousel .carousel-slide img{width:100%;height:100%;object-fit:cover}
+    .photo-carousel .carousel-slide.img-failed{background:linear-gradient(135deg,#c2b49a,#a18e78)}
+    .photo-carousel .carousel-slide .slide-fallback{display:none;position:absolute;left:20%;right:20%;top:47%;text-align:center;color:white;font-size:.78rem;line-height:1.8;text-shadow:0 2px 8px #4d4132}
+    .photo-carousel .carousel-slide.img-failed .slide-fallback{display:block}
+    .photo-carousel:after{pointer-events:none;z-index:2;background:linear-gradient(0deg,rgba(20,35,26,.72),transparent 43%),linear-gradient(180deg,rgba(15,29,21,.28),transparent 24%)}
+    .photo-carousel .day-vertical{z-index:6;pointer-events:none}
+    .photo-carousel .carousel-caption{position:absolute;bottom:53px;left:25px;right:21px;z-index:7;color:#fff;pointer-events:none}
+    .photo-carousel .carousel-caption .day-image-credit{position:static;display:block;margin-bottom:6px;color:#f2e3d4}
+    .photo-carousel .carousel-caption strong{font:500 1.03rem var(--serif);line-height:1.65;display:block;text-shadow:0 2px 8px #10201760;letter-spacing:.04em}
+    .photo-carousel .photo-source{pointer-events:auto;display:inline-block;margin-top:4px;font-size:.62rem;text-decoration:underline;text-decoration-color:#fff9;text-underline-offset:3px;color:#f1e8db}
+    .photo-carousel .carousel-footer{position:absolute;left:25px;right:25px;bottom:14px;z-index:7;display:flex;align-items:center;justify-content:space-between;gap:8px;color:white}
+    .carousel-number,.carousel-hint{font-size:.65rem;letter-spacing:.06em;white-space:nowrap}
+    .carousel-dots{display:flex;align-items:center;justify-content:center;gap:8px}
+    .carousel-dot{appearance:none;width:8px;height:8px;padding:0;border:1px solid #fff;border-radius:50%;background:#ffffff5a;transition:width .25s,background .25s;cursor:pointer}
+    .carousel-dot.active{width:23px;border-radius:20px;background:#fff}
+    .carousel-dot:focus-visible,.carousel-arrow:focus-visible,.photo-source:focus-visible{outline:3px solid #eabb7f;outline-offset:3px}
+    .carousel-arrow{position:absolute;z-index:7;top:48%;transform:translateY(-50%);width:39px;height:46px;border:1px solid #ffffff81;background:#1e302a6b;color:white;font:300 2.1rem/1 var(--sans);border-radius:4px;display:grid;place-items:center;transition:background .2s;backdrop-filter:blur(6px)}
+    .carousel-arrow:hover{background:#a44e35d9}
+    .carousel-arrow.prev{left:11px}.carousel-arrow.next{right:11px}
+    @media(max-width:760px){.photo-carousel .carousel-caption{bottom:49px;left:19px;right:19px}.photo-carousel .carousel-caption strong{font-size:.91rem}.photo-carousel .carousel-footer{left:19px;right:19px}.carousel-arrow{width:35px;height:42px}.carousel-hint{font-size:.6rem}}
+    @media(prefers-reduced-motion:reduce){.photo-carousel .carousel-slide,.carousel-dot{transition:none!important}}
+
   </style>
 </head>
 <body>
@@ -218,6 +246,91 @@
       return '<article class="day reveal" id="day-'+(i+1)+'"><div class="day-media"><img loading="lazy" decoding="async" src="'+esc(wm(photos[d.image]))+'" alt="'+esc(d.title)+'參考照片" onerror="this.style.opacity=0"><div class="day-vertical">DAY '+String(i+1).padStart(2,'0')+' · '+esc(d.tag)+'</div><div class="day-image-credit">'+esc(d.dateText)+'</div></div><div class="day-content"><div class="day-top"><span>'+esc(d.dow)+' · '+esc(d.date)+'</span><span class="drive-tag">🚗 '+esc(d.drive)+'</span></div><h3>'+esc(d.title)+'</h3><p class="day-desc">'+esc(d.subtitle)+'</p><div class="stops">'+st+'</div><div class="day-bottom"><span class="stay">泊：<b>'+esc(d.stay)+'</b></span><a class="route-link" href="'+esc(route(d.stops))+'" target="_blank" rel="noopener noreferrer">查看整日路線 ↗</a><label class="done"><input type="checkbox" data-day="'+i+'" aria-label="標記第'+(i+1)+'日已完成"> 已完成</label></div></div></article>';
     }
     document.getElementById('daysList').innerHTML=days.map(renderDay).join('');
+
+    // Daily photos curated from Wikimedia Commons. File-page attribution remains visible at the bottom.
+    var dailyGalleries = [[["Nakasu Yatai Stalls (19979437930).jpg","中洲屋台・博多夜色","Yoshikazu TAKADA","CC BY 2.0"],["Kushida Shrine from North Shimmon 20140927.jpg","櫛田神社・博多古韻","そらみみ","CC BY-SA 4.0"],["Entrance of Canal City Hakata near Kushida Shrine.jpg","博多運河城・街角","そらみみ","CC BY-SA 4.0"],["Ohori Park, Fukuoka.JPG","大濠公園・湖畔散步","Masgatotkaca","CC BY-SA 3.0"]],[["View of Mojiko Station from Mojiko Retro.jpg","門司港車站・懷舊建築","Kirin7739","CC BY-SA 4.0"],["Mojiko Retro Area from Former Moji Customs.JPG","門司港・舊海關景色","そらみみ","CC BY-SA 4.0"],["Mojiko Retro Area at night 20181227-2.jpg","門司港・夜景燈影","そらみみ","CC BY-SA 4.0"],["Mojiko Retro Area from Karato Market.JPG","隔海遠眺門司港","そらみみ","CC BY-SA 4.0"]],[["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG","一目八景・耶馬溪紅葉","そらみみ","CC BY-SA 4.0"],["Inside view of Karato Fish Market (2)20200113.jpg","唐戶市場・週末美食","Rick888chen","CC BY-SA 4.0"],["View from 2nd floor of Karato Market (Mojiko Retro Area).JPG","唐戶市場・關門海峽","そらみみ","CC BY-SA 4.0"],["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-2.JPG","耶馬溪・山谷秋色","そらみみ","CC BY-SA 4.0"]],[["Umi Jigoku (Sea Hell) in Beppu.jpg","別府海地獄・湛藍溫泉","Bpcon98","CC0"],["Sea Hell Hot Spring 20171003-1.jpg","別府地熱・溫泉蒸氣","そらみみ","CC BY-SA 4.0"],["Beppu Jigoku-Meguri Street 20171003.jpg","別府・地獄巡禮街道","そらみみ","CC BY-SA 4.0"],["Yunotsubo-Yokocho in Yufuin Hot Spring.JPG","由布院・湯之坪小路","そらみみ","CC BY-SA 4.0"]],[["Lake Kinrin 20221022-1.jpg","由布院金鱗湖・秋日湖畔","Suicasmo","CC BY-SA 4.0"],["Kokonoe \"Yume\" Suspension Bridge 20131004.jpg","九重夢大吊橋・山谷景色","そらみみ","CC BY-SA 4.0"],["Kurokawa Onsen -温泉街.jpg","黑川溫泉・傳統街道","hiroooooki（編修：トトト）","CC BY 2.0"],["Kurokawa-onsen.jpg","黑川溫泉・露天風呂","Igorberger","CC BY-SA 3.0"]],[["Yanagawa eel steamed in a basket.JPG","柳川名物・鰻魚蒸籠飯示意（若松屋）","Sakaori","CC BY 3.0"],["A view of the five mountains of Aso from Daikanbo viewpoint.jpg","阿蘇大觀峰・火山群","STA3816","CC BY-SA 3.0"],["Yanagawa cruise ac (2).jpg","柳川川下り・水鄉慢遊","Asturio Cantabrio","CC BY-SA 4.0"],["Yanagawa cruise ac (7).jpg","柳川・小船遊河","Asturio Cantabrio","CC BY-SA 4.0"]],[["Fukuoka airport 20260910.jpg","福岡機場・2026年國際線航廈","Twotwo2019","CC BY 4.0"],["Fukuoka Airport FUK international departures 2025-03-30.jpg","福岡機場・2025年國際線出發區","ERIC SALARD","CC BY-SA 2.0"],["Fukuoka Airport International Terminal Departure Floor.jpg","福岡機場・2014年出發樓層舊照","Chihaya Sta","CC BY-SA 4.0"]]];
+    function installCarousels(){
+      dailyGalleries.forEach(function(gallery,i){
+        var card=document.getElementById('day-'+(i+1));
+        if(!card||!gallery.length)return;
+        var holder=card.querySelector('.day-media');
+        if(!holder)return;
+        holder.classList.add('photo-carousel');
+        holder.setAttribute('role','region');
+        holder.setAttribute('aria-roledescription','carousel');
+        holder.setAttribute('aria-label','第'+(i+1)+'日照片，可左右滑動');
+        holder.setAttribute('tabindex','0');
+        var imgHtml=gallery.map(function(p,j){
+          return '<div class="carousel-slide'+(j===0?' active':'')+'" role="group" aria-roledescription="slide" aria-label="'+(j+1)+' / '+gallery.length+'" aria-hidden="'+(j===0?'false':'true')+'"><img '+(j===0?'src="'+esc(wm(p[0]))+'"':'data-src="'+esc(wm(p[0]))+'"')+' loading="lazy" decoding="async" alt="'+esc(p[1])+'"><span class="slide-fallback">相片暫時未能載入</span></div>';
+        }).join('');
+        var dots=gallery.map(function(p,j){return '<button type="button" class="carousel-dot'+(j===0?' active':'')+'" data-dot="'+j+'" aria-label="查看第'+(j+1)+'張：'+esc(p[1])+'" aria-current="'+(j===0?'true':'false')+'"></button>';}).join('');
+        holder.innerHTML='<div class="carousel-track">'+imgHtml+'</div>'+
+          '<span class="day-vertical">DAY '+String(i+1).padStart(2,'0')+' · '+esc(days[i].tag)+'</span>'+
+          '<button type="button" class="carousel-arrow prev" aria-label="上一張照片">‹</button>'+
+          '<button type="button" class="carousel-arrow next" aria-label="下一張照片">›</button>'+
+          '<div class="carousel-caption"><span class="day-image-credit">'+esc(days[i].dateText)+'</span><strong data-caption>'+esc(gallery[0][1])+'</strong><a class="photo-source" href="'+esc(wiki(gallery[0][0]))+'" target="_blank" rel="noopener noreferrer" data-source>照片來源／授權 ↗</a></div>'+
+          '<div class="carousel-footer"><span class="carousel-number" data-counter>01 / '+String(gallery.length).padStart(2,'0')+'</span><div class="carousel-dots">'+dots+'</div><span class="carousel-hint">SWIPE ↔</span></div>';
+        var slides=Array.from(holder.querySelectorAll('.carousel-slide'));
+        var dotButtons=Array.from(holder.querySelectorAll('.carousel-dot'));
+        var caption=holder.querySelector('[data-caption]');
+        var source=holder.querySelector('[data-source]');
+        var counter=holder.querySelector('[data-counter]');
+        var current=0,paused=false,userChangedAt=0;
+        function fetchImage(k){
+          var img=slides[k].querySelector('img');
+          if(img.dataset.src){img.src=img.dataset.src;img.removeAttribute('data-src');}
+        }
+        slides.forEach(function(slide){var img=slide.querySelector('img');img.addEventListener('error',function(){slide.classList.add('img-failed');img.style.opacity='0';});});
+        function go(k,manual){
+          var next=(k+gallery.length)%gallery.length;
+          if(next===current&&!manual)return;
+          fetchImage(next);
+          slides.forEach(function(slide,j){var on=j===next;slide.classList.toggle('active',on);slide.setAttribute('aria-hidden',on?'false':'true');});
+          dotButtons.forEach(function(btn,j){var on=j===next;btn.classList.toggle('active',on);btn.setAttribute('aria-current',on?'true':'false');});
+          current=next;
+          caption.textContent=gallery[next][1];
+          source.href=wiki(gallery[next][0]);
+          source.setAttribute('aria-label','查看 '+gallery[next][1]+' 相片來源及授權');
+          counter.textContent=String(next+1).padStart(2,'0')+' / '+String(gallery.length).padStart(2,'0');
+          if(manual)userChangedAt=Date.now();
+        }
+        holder.querySelector('.carousel-arrow.prev').addEventListener('click',function(){go(current-1,true);});
+        holder.querySelector('.carousel-arrow.next').addEventListener('click',function(){go(current+1,true);});
+        dotButtons.forEach(function(btn,j){btn.addEventListener('click',function(){go(j,true);});});
+        holder.addEventListener('keydown',function(event){
+          if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+            event.preventDefault();go(current+(event.key==='ArrowRight'?1:-1),true);
+          }
+        });
+        var touch=null;
+        holder.addEventListener('touchstart',function(e){if(e.touches.length===1)touch={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
+        holder.addEventListener('touchend',function(e){if(!touch||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;touch=null;if(Math.abs(dx)>38&&Math.abs(dx)>Math.abs(dy)*1.35)go(current+(dx<0?1:-1),true);},{passive:true});
+        holder.addEventListener('mouseenter',function(){paused=true;});
+        holder.addEventListener('mouseleave',function(){paused=false;});
+        holder.addEventListener('focusin',function(){paused=true;});
+        holder.addEventListener('focusout',function(e){if(!holder.contains(e.relatedTarget))paused=false;});
+        fetchImage(0);
+        // Preload second image only when this card is near the viewport.
+        if('IntersectionObserver' in window){var io=new IntersectionObserver(function(items){if(items[0].isIntersecting){fetchImage(1);io.disconnect();}},{rootMargin:'350px 0px'});io.observe(holder);}
+        // Gentle auto-play, disabled when motion preference is reduced.
+        var noMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(!noMotion){window.setInterval(function(){if(paused||document.hidden||Date.now()-userChangedAt<12000)return;var rect=holder.getBoundingClientRect();if(rect.bottom<0||rect.top>window.innerHeight)return;go(current+1,false);},6500);}
+      });
+      // Include every referenced slide with photographer + license metadata.
+      var moreCredits=[];
+      dailyGalleries.forEach(function(g){g.forEach(function(p){moreCredits.push(p);});});
+      var known=new Set(Object.keys(photos).map(function(k){return photos[k];}));
+      var creditTarget=document.getElementById('credits');
+      moreCredits.forEach(function(p){
+        if(known.has(p[0]))return;
+        known.add(p[0]);
+        var a=document.createElement('a');a.href=wiki(p[0]);a.target='_blank';a.rel='noopener noreferrer';
+        a.textContent=p[0]+' — '+p[2]+' · '+p[3]+' · 網頁裁切展示 ↗';
+        creditTarget.appendChild(a);
+      });
+    }
+    installCarousels();
+
     document.getElementById('dayNav').innerHTML=days.map(function(d,i){return '<a class="date-chip'+(i===0?' active':'')+'" href="#day-'+(i+1)+'"><span class="num">'+String(i+1).padStart(2,'0')+'</span><span>'+esc(d.date)+'</span></a>';}).join('');
     document.getElementById('credits').innerHTML=Object.keys(photos).map(function(key){return '<a href="'+esc(wiki(photos[key]))+'" target="_blank" rel="noopener noreferrer">'+esc(photos[key])+' — '+esc(photoAuthors[key])+' · '+esc(photoLicenses[key])+' ↗</a>';}).join('');
     var store;try{store=window.localStorage;}catch(e){store=null;}
