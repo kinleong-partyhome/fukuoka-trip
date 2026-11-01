@@ -108,6 +108,32 @@
     /* Scheme A: a gentle Kinrin Lake hero, with Yabakei foliage in the small inset. */
     .hero-main img{object-position:65% 52%;filter:saturate(1.18) contrast(1.07)}
     .hero-inset img{object-position:52% 48%;filter:saturate(1.13) contrast(1.06)}
+
+    /* Confirmed itinerary: flight and airport arrival board */
+    .flight-section{padding-top:55px;padding-bottom:18px;scroll-margin-top:85px}
+    .flight-section .section-head{padding-top:0;margin-bottom:27px}
+    .flight-section .section-head p{max-width:390px}
+    .flight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .flight-card{position:relative;padding:28px 29px 25px;background:var(--cream);border:1px solid #dfdfd3;border-radius:9px;box-shadow:0 7px 29px #24332709;overflow:hidden}
+    .flight-card:before{position:absolute;content:"";height:4px;left:0;right:0;top:0;background:linear-gradient(90deg,#a84b37,#d7a267,#e4c49d)}
+    .flight-card-head{display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .flight-label{font-size:.7rem;letter-spacing:.17em;color:var(--rust);font-weight:700}
+    .flight-bought{font-size:.66rem;color:#506b50;background:#e7eee3;border-radius:100px;padding:6px 11px;white-space:nowrap}
+    .flight-flightno{font:500 1.45rem var(--serif);margin:11px 0 15px;color:var(--ink)}
+    .flight-path{display:grid;grid-template-columns:minmax(0,1fr) 52px minmax(0,1fr);align-items:center;gap:4px}
+    .flight-side{display:flex;flex-direction:column;gap:5px;min-width:0}
+    .flight-side:last-child{text-align:right}
+    .flight-time{font:500 clamp(1.5rem,3vw,2.2rem) var(--serif);color:var(--dark);letter-spacing:-.025em}
+    .flight-place{font-size:.71rem;color:#697b6d;line-height:1.6}
+    .flight-arrow{text-align:center;color:var(--rust);font-size:1.5rem}
+    .flight-notice{margin-top:21px;padding:13px 16px;background:#f4e8dc;border-radius:5px;color:#6f3c2f;line-height:1.9;font-size:.77rem}
+    .flight-notice strong{font-weight:700;color:#8e3f2c}
+    .flight-details{margin-top:13px;font-size:.72rem;line-height:1.9;color:#647267}
+    .flight-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:13px}
+    .flight-links a{font-size:.69rem;color:#8d584b;text-decoration:underline;text-underline-offset:4px}
+    .flight-note{font-size:.72rem;color:var(--muted);line-height:2;margin:16px 0 0}
+    @media(max-width:760px){.flight-section{padding-top:20px}.flight-grid{grid-template-columns:1fr;gap:13px}.flight-card{padding:23px 20px 22px}.flight-path{grid-template-columns:minmax(0,1fr) 31px minmax(0,1fr)}.flight-time{font-size:1.76rem}.flight-place{font-size:.66rem}}
+
   </style>
 </head>
 <body>
@@ -115,7 +141,7 @@
   <div class="top-progress" id="pageProgress" aria-hidden="true"></div>
   <header class="container topbar">
     <a class="brand" href="#top" aria-label="回到網站頂部"><span class="brand-mark">旅</span><span class="brand-text">秋を旅する。<small>KYUSHU AUTUMN JOURNAL</small></span></a>
-    <nav class="desktop-nav" aria-label="主要導覽"><a href="#overview">旅程概覽</a><a href="#itinerary">七日行程</a><a href="#unagi">柳川鰻魚飯</a><a href="#essentials">出發手帖</a><button type="button" class="nav-share" data-share>分享行程 ↗</button></nav>
+    <nav class="desktop-nav" aria-label="主要導覽"><a href="#overview">旅程概覽</a><a href="#flights">已訂航班</a><a href="#itinerary">七日行程</a><a href="#unagi">柳川鰻魚飯</a><a href="#essentials">出發手帖</a><button type="button" class="nav-share" data-share>分享行程 ↗</button></nav>
   </header>
   <main id="top">
     <section class="container hero">
@@ -147,6 +173,37 @@
       </div>
       <div class="route-card reveal"><div class="route-head"><div><span class="eyebrow">THE ROAD JOURNEY</span><h3>九州北部・秋色小環線</h3></div><span class="jp" style="color:#a26452;font-size:1.7rem">道</span></div><div class="route-line" aria-label="自駕行程路線"><span>福岡</span><i></i><b></b><span>門司港</span><i></i><b></b><span>耶馬溪</span><i></i><b></b><span>別府</span><i></i><b></b><span>由布院</span><i></i><b></b><span>九重</span><i></i><b></b><span>黑川</span><i></i><b></b><span>阿蘇</span><i></i><b></b><span>柳川</span><i></i><b></b><span>福岡</span></div><p class="route-note">取車：11/13 下午 · 還車：11/18 上午，福岡機場國際線附近租車營業所。網站內每個景點都可以一按開啟 Google Maps。</p></div>
     </section>
+
+    <section class="container flight-section" id="flights" aria-label="已訂購香港航空航班和機場建議到達時間">
+      <div class="section-head reveal"><div><span class="eyebrow">FLIGHTS · BOOKED &amp; READY</span><h2>航班已訂，<br>秋旅準時出發。</h2></div><p>香港航空往返福岡｜所有航班時間均為出發／抵達地點當地時間，日本比香港快一小時。</p></div>
+      <div class="flight-grid">
+        <article class="flight-card reveal" aria-label="11月12日去程 HX638">
+          <div class="flight-card-head"><span class="flight-label">11.12 THU / 星期四 · 去程</span><span class="flight-bought">✓ 已購買機票</span></div>
+          <div class="flight-flightno">香港航空 · HX638</div>
+          <div class="flight-path">
+            <div class="flight-side"><strong class="flight-time">08:15</strong><span class="flight-place">HKG 香港 · T2 出發</span></div>
+            <span class="flight-arrow" aria-hidden="true">✈</span>
+            <div class="flight-side"><strong class="flight-time">12:25</strong><span class="flight-place">FUK 福岡 · 國際線抵達</span></div>
+          </div>
+          <div class="flight-notice"><strong>⏰ 建議 05:15 前到達香港機場 T2</strong><div>即起飛前約3小時，預留寄艙、安檢及從T2乘接駁列車去T1登機閘口時間。</div></div>
+          <div class="flight-details">香港航空 T2 Q行段辦登機／寄艙（或R行段自助區）。櫃檯最遲約07:15關閉；登機閘口約07:55關閉。</div>
+          <div class="flight-links"><a href="https://content.hongkongairlines.com/zh_HK/airport-information/hong-kong/check-in" target="_blank" rel="noopener noreferrer">香港航空 T2 辦登機詳情 ↗</a></div>
+        </article>
+        <article class="flight-card reveal" aria-label="11月18日回程 HX639">
+          <div class="flight-card-head"><span class="flight-label">11.18 WED / 星期三 · 回程</span><span class="flight-bought">✓ 已購買機票</span></div>
+          <div class="flight-flightno">香港航空 · HX639</div>
+          <div class="flight-path">
+            <div class="flight-side"><strong class="flight-time">13:25</strong><span class="flight-place">FUK 福岡 · 國際線出發</span></div>
+            <span class="flight-arrow" aria-hidden="true">✈</span>
+            <div class="flight-side"><strong class="flight-time">16:40</strong><span class="flight-place">HKG 香港 · T1 抵達</span></div>
+          </div>
+          <div class="flight-notice"><strong>⏰ 建議 10:15–10:25 前到達福岡國際線</strong><div>有租車要還：預計09:15–09:30到租車營業所完成還車，留足接駁車及行李寄艙時間。</div></div>
+          <div class="flight-details">福岡機場使用國際線客運大樓；實際租車營業所、接駁車及櫃檯截止時間以訂單和航空公司通知為準。</div>
+          <div class="flight-links"><a href="https://www.fukuoka-airport.jp/en/flight/airline/crk.html" target="_blank" rel="noopener noreferrer">福岡機場香港航空櫃檯 ↗</a></div>
+        </article>
+      </div>
+      <p class="flight-note">🧳 機票截圖顯示 Value 經濟艙每人手提行李1件、寄艙行李1件（23公斤）；請以最終出票確認書為準。起飛及航廈如有變更，以航空公司通知為準。</p>
+    </section>
     <section class="container" id="itinerary">
       <div class="section-head reveal"><div><span class="eyebrow">SEVEN DAYS OF SMALL WONDERS</span><h2>七天，七種秋日風景。</h2></div><p>所有時間均為日本當地時間。行車時間只係預算，實際以出發時 Google Maps 同交通狀況為準。</p></div>
     </section>
@@ -163,8 +220,8 @@
     <section class="container toolkit" id="essentials">
       <div class="section-head reveal" style="padding-top:0"><div><span class="eyebrow">TRAVEL NOTES & LITTLE REMINDERS</span><h2>出發前的小手帖。</h2></div><p>唔使到時搵唔返資料，重要連結都放喺度。</p></div>
       <div class="toolgrid">
-        <article class="toolcard reveal"><div class="symbol">一</div><h3>航班小紙條</h3><p>去程 11/12 · HX638｜香港 08:15 → 福岡 12:25。<br>回程 11/18 · HX639｜福岡 13:25 → 香港 16:40。<br>留意機票所列航班及航廈資訊可能有更新，出發前再核對。</p><a href="https://www.fukuoka-airport.jp/en/" target="_blank" rel="noopener noreferrer">福岡機場官網 ↗</a></article>
-        <article class="toolcard reveal"><div class="symbol">二</div><h3>機場還車計劃</h3><p>11/18 約 09:30–10:00 到機場附近租車營業所還車，目標 10:30 左右抵達國際線。參考 Nippon Rent-A-Car 國際線營業所，09:00 開門、還車後提供接駁車；以實際預訂嘅公司及營業所為準。</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2-7-42%20Hanmichibashi%2C%20Hakata-ku%2C%20Fukuoka&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">Nippon 國際線營業所導航 ↗</a></article>
+        <article class="toolcard reveal"><div class="symbol">一</div><h3>已訂航班 · 機場時間</h3><p><b>11/12 HX638：</b>香港 T2 08:15 → 福岡 12:25，<b>05:15 到香港機場</b>。<br><b>11/18 HX639：</b>福岡 13:25 → 香港 T1 16:40，<b>10:15–10:25 前到福岡國際線</b>。<br>香港航空 T2 Q行段辦登機，約07:15 截止。全程時間均以當地時區顯示。</p><a href="#flights">睇詳細已訂航班及寄艙建議 ↗</a></article>
+        <article class="toolcard reveal"><div class="symbol">二</div><h3>機場還車計劃</h3><p>11/18 建議 09:15–09:30 到機場附近租車營業所還車，目標 10:15 前後抵達國際線（最遲約10:25）。參考 Nippon Rent-A-Car 國際線營業所，09:00 開門、還車後提供接駁車；以實際預訂嘅公司及營業所為準。</p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=2-7-42%20Hanmichibashi%2C%20Hakata-ku%2C%20Fukuoka&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">Nippon 國際線營業所導航 ↗</a></article>
         <article class="toolcard reveal"><div class="symbol">三</div><h3>山路與紅葉</h3><p>11月山區日落較早，耶馬溪、九重、黑川一帶盡量日間駕駛。天氣冷時留意霜凍、路況，同租車公司確認輪胎安排；紅葉實際色況亦會受天氣影響。</p><a href="https://www.jma.go.jp/jma/en/menu.html" target="_blank" rel="noopener noreferrer">日本氣象廳 ↗</a></article>
       </div>
       <div class="checklist" aria-label="出發前待辦清單">
@@ -177,8 +234,8 @@
       <p class="small" style="margin-top:16px">✓ 勾選結果只保存在自己裝置的瀏覽器，不會同步俾其他朋友；網站唔會收集個人資料。</p>
     </section>
   </main>
-  <footer class="footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">秋を旅する。</div><p class="footer-text">2026.11.12 — 11.18<br>少一點趕路，多一點記得。<br>Made for friends, with love from Kyushu.</p></div><div><span class="eyebrow">A SMALL NOTE</span><p class="footer-text">呢份係旅行規劃手帖，唔代表已預訂酒店、餐廳或租車。營業時間、車程、價格及交通安排出發前請再核對。</p></div></div><details style="margin-top:20px"><summary class="credits-toggle">圖片來源及授權（Wikimedia Commons）⌄</summary><div class="credits" id="credits"></div><p class="small">圖片由 Wikimedia Commons 提供，透過網頁版面裁切顯示；攝影者、授權條款及來源詳情請參閱各檔案連結。此網站沒有聲稱圖片顯示2026年實際紅葉情況。</p></details><p class="copyright">© 2026 KYUSHU AUTUMN JOURNAL · Travel notes in Traditional Chinese · 路線僅供參考</p></div></footer>
-  <div class="floating-actions" aria-label="快捷導覽"><a href="#itinerary">行程</a><a href="#unagi">鰻魚飯</a><a href="#essentials">還車</a><button type="button" data-share>分享 ↗</button></div>
+  <footer class="footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">秋を旅する。</div><p class="footer-text">2026.11.12 — 11.18<br>少一點趕路，多一點記得。<br>Made for friends, with love from Kyushu.</p></div><div><span class="eyebrow">A SMALL NOTE</span><p class="footer-text">去回程 HX638／HX639 機票已購買；酒店、餐廳或租車仍屬規劃，唔代表已預訂。營業時間、車程、價格及交通安排出發前請再核對。</p></div></div><details style="margin-top:20px"><summary class="credits-toggle">圖片來源及授權（Wikimedia Commons）⌄</summary><div class="credits" id="credits"></div><p class="small">圖片由 Wikimedia Commons 提供，透過網頁版面裁切顯示；攝影者、授權條款及來源詳情請參閱各檔案連結。此網站沒有聲稱圖片顯示2026年實際紅葉情況。</p></details><p class="copyright">© 2026 KYUSHU AUTUMN JOURNAL · Travel notes in Traditional Chinese · 路線僅供參考</p></div></footer>
+  <div class="floating-actions" aria-label="快捷導覽"><a href="#flights">航班</a><a href="#itinerary">行程</a><a href="#unagi">鰻魚飯</a><a href="#essentials">還車</a><button type="button" data-share>分享 ↗</button></div>
   <script>
   (function(){
     'use strict';
@@ -205,7 +262,7 @@
     function route(stops){if(stops.length<2)return map(stops[0].q);var origin=stops[0].q, dest=stops[stops.length-1].q,mid=stops.slice(1,-1).map(function(x){return x.q;});return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(origin)+'&destination='+encodeURIComponent(dest)+'&travelmode=driving'+(mid.length?'&waypoints='+encodeURIComponent(mid.join('|')):'');}
     function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
     var days=[
-      {date:'11.12',dow:'THU / 四',dateText:'11月12日 · 星期四',tag:'抵達九州',title:'初見福岡・博多夜色',subtitle:'香港飛福岡，先用一晚慢慢感受街角的熱鬧與豚骨拉麵。',drive:'市區不取車',image:'nakasu',stay:'福岡｜博多或天神',stops:[
+      {date:'11.12',dow:'THU / 四',dateText:'11月12日 · 星期四',tag:'抵達九州',title:'初見福岡・博多夜色',subtitle:'已訂 HX638：香港 T2 08:15 起飛（建議 05:15 到機場），福岡當地 12:25 抵達；之後慢慢感受博多夜色。',drive:'市區不取車',image:'nakasu',stay:'福岡｜博多或天神',stops:[
         {t:'12:25',name:'福岡機場國際線',sub:'HX638 抵達；辦入境及市區交通',q:'福岡空港 国際線旅客ターミナル'},
         {t:'15:30',name:'櫛田神社／博多運河城',sub:'散步、逛街、感受博多氣氛',q:'櫛田神社 福岡市'},
         {t:'19:00',name:'中洲屋台',sub:'夜間小食、博多拉麵，店舖以當日為準',q:'中洲屋台 福岡'}
@@ -238,9 +295,9 @@
         {t:'14:30',name:'柳川川下り',sub:'選合適短途路線；先確認船期及泊車',q:'柳川 川下り 下百町 乗船場'},
         {t:'17:30',name:'福岡市區酒店',sub:'最後一晚，選有泊車位的酒店',q:'博多駅'}
       ]},
-      {date:'11.18',dow:'WED / 三',dateText:'11月18日 · 星期三',tag:'平安回家',title:'把秋天帶返香港',subtitle:'直接揸車去機場附近營業所還車，再乘接駁車去國際線。13:25 起飛，預留充裕時間。',drive:'視酒店位置',image:'nakasu',stay:'香港｜HX639 13:25 起飛',stops:[
-        {t:'09:30',name:'機場租車營業所還車',sub:'參考 Nippon 國際線營業所；請依實際租車確認書導航',q:'福岡市博多区半道橋2丁目7-42'},
-        {t:'10:30',name:'福岡機場國際線',sub:'完成還車接駁，辦登機及行李寄艙',q:'福岡空港 国際線旅客ターミナル'},
+      {date:'11.18',dow:'WED / 三',dateText:'11月18日 · 星期三',tag:'平安回家',title:'把秋天帶返香港',subtitle:'已訂 HX639：福岡當地 13:25 起飛，香港 T1 16:40 抵達；09:15–09:30 還車，10:15 前後到國際線。',drive:'視酒店位置',image:'nakasu',stay:'香港｜HX639 13:25 起飛',stops:[
+        {t:'09:15',name:'機場租車營業所還車',sub:'參考 Nippon 國際線營業所；請依實際租車確認書導航',q:'福岡市博多区半道橋2丁目7-42'},
+        {t:'10:15',name:'福岡機場國際線',sub:'建議約10:15到國際線航廈；最遲10:25，預留辦登機及寄艙時間',q:'福岡空港 国際線旅客ターミナル'},
         {t:'13:25',name:'HX639 返香港',sub:'預計香港時間 16:40 抵達',q:'福岡空港 国際線旅客ターミナル'}
       ]}
     ];
