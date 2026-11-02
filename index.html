@@ -360,14 +360,27 @@
       .flight-card .flight-notice{font-size:.93rem}
       .floating-actions a,.floating-actions button{font-size:.86rem}
     }
-  /* Hero full bleed to top edge; keep original waterfall photograph */
-html,body{width:100%;overflow-x:clip}
-.hero.magazine-cover{margin:0!important;min-height:100svh!important;width:100%!important;max-width:none!important}
-.magazine-cover .cover-photo{position:absolute!important;inset:0!important;overflow:hidden}
-.magazine-cover .cover-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 43%}
-.topbar.magazine-topbar{top:0!important;margin-top:0!important}
-@media(max-width:760px){.magazine-cover .cover-photo img{object-position:50% 43%;transform:scale(1.035);transform-origin:center top}}
-</style>
+  /* Mobile hero correction: single continuous photo, no blurred side panels.
+     Fill the cover from the top, preserving the photograph and readable overlay. */
+  .hero.magazine-cover{width:100%;max-width:none;margin:0;min-height:100svh;overflow:hidden}
+  .magazine-cover .cover-photo{position:absolute;inset:0;overflow:hidden}
+  .magazine-cover .cover-photo::before{display:none!important}
+  .magazine-cover .cover-photo img{position:absolute;inset:0;left:0;top:0;display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center 42%;transform:none!important;filter:none}
+  .topbar.magazine-topbar{top:0;margin-top:0}
+  @media(max-width:760px){
+    .hero.magazine-cover{min-height:100svh;padding:145px 19px 95px}
+    .magazine-cover .cover-photo img{left:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;transform:none!important}
+    .magazine-cover .cover-body{transform:none!important;width:100%;max-width:100%}
+    .magazine-cover h1{font-size:clamp(3.15rem,12vw,4.6rem);line-height:1.02}
+    .magazine-cover .cover-description{font-size:.9rem!important;line-height:1.7}
+    .magazine-cover .cover-eyebrow{font-size:.7rem}
+    .magazine-cover .cover-tags span{font-size:.78rem}
+    .magazine-cover .cover-buttons a{font-size:.87rem;padding:12px}
+    .magazine-cover .cover-footer{font-size:.6rem}
+    .hero.magazine-cover:before{background:linear-gradient(180deg,rgba(8,24,17,.48),rgba(8,24,17,.06) 22%,rgba(8,24,17,.24) 43%,rgba(8,24,17,.78) 72%,rgba(8,24,17,.94) 100%)}
+  }
+  @media(max-width:390px){.hero.magazine-cover{padding:135px 16px 90px}.magazine-cover h1{font-size:clamp(3rem,12vw,4rem)}}
+  </style>
 </head>
 <body>
   <div class="momiji-rain" aria-hidden="true"><span class="maple-drop" style="--x:3%;--delay:-4s;--dur:20s;--size:21px;--color:#a44e32"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:13%;--delay:-16s;--dur:26s;--size:27px;--color:#d3a05c"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:24%;--delay:-8s;--dur:22s;--size:18px;--color:#934537"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:38%;--delay:-23s;--dur:32s;--size:23px;--color:#bd7040"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:51%;--delay:-11s;--dur:25s;--size:15px;--color:#aa533a"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:64%;--delay:-18s;--dur:29s;--size:28px;--color:#cf974f"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:79%;--delay:-5s;--dur:25s;--size:20px;--color:#983f31"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:88%;--delay:-21s;--dur:31s;--size:16px;--color:#bd6346"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:94%;--delay:-9s;--dur:22s;--size:25px;--color:#a84c36"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:31%;--delay:-26s;--dur:34s;--size:19px;--color:#cb7b4d"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span><span class="maple-drop" style="--x:70%;--delay:-14s;--dur:28s;--size:22px;--color:#bf8953"><svg  viewBox="0 0 100 100" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 L58 26 L74 16 L72 37 L94 32 L82 49 L96 60 L73 63 L79 83 L57 74 L53 96 L47 96 L44 74 L22 83 L28 63 L5 60 L19 49 L7 32 L29 37 L27 16 L42 26 Z" fill="currentColor"/></svg></span></div>
