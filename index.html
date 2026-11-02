@@ -315,6 +315,51 @@
       .stop-time,.day-top,.stay,.map-link,.route-link,.flight-place{font-size:.78rem}
       .carousel-caption strong{font-size:1rem}
     }
+
+    /* Readability v3 — increase previously tiny captions/labels throughout the site. */
+    body{font-size:16px}
+    .eyebrow,.small,.brand-text small,.desktop-nav,.btn,.day-top,.day-desc,
+    .stop-time,.stop-main small,.map-link,.route-link,.stay,.day-bottom,
+    .toolcard p,.toolcard a,.spotlight-text p,.section-head p,
+    .flight-label,.flight-bought,.flight-details,.flight-note,.flight-place,.flight-links a,
+    .cover-footer,.cover-tags span,.carousel-number,.carousel-hint,
+    .carousel-caption strong,.photo-source,.day-image-credit,.date-link,.credits a{
+      font-size:clamp(.875rem,1.03vw,.97rem);
+      line-height:1.7;
+    }
+    .day-content .stop-main strong{font-size:1.02rem;line-height:1.55}
+    .day-content h3{line-height:1.4}
+    .magazine-cover .cover-description{font-size:1rem;line-height:1.85}
+    .magazine-cover .cover-japanese{font-size:.99rem}
+    .magazine-cover .cover-eyebrow{font-size:.87rem}
+    .magazine-cover .cover-tags span{font-size:.91rem}
+    .magazine-cover .cover-buttons a{font-size:1rem}
+    .magazine-cover .cover-footer{font-size:.76rem}
+    .flight-card .flight-notice{font-size:.92rem}
+    @media(max-width:760px){
+      .eyebrow,.small,.day-top,.stop-time,.stop-main small,.map-link,
+      .route-link,.stay,.day-bottom,.flight-label,.flight-bought,
+      .flight-details,.flight-note,.flight-place,.flight-links a,.toolcard p,
+      .toolcard a,.spotlight-text p,.section-head p,.carousel-number,
+      .carousel-hint,.photo-source,.day-image-credit,.credits a{
+        font-size:.9rem;
+        line-height:1.7;
+      }
+      .day-desc,.cover-description{font-size:1rem!important;line-height:1.8}
+      .day-content .stop-main strong{font-size:1rem}
+      .magazine-cover .cover-eyebrow{font-size:.77rem}
+      .magazine-cover .cover-japanese{font-size:.88rem}
+      .magazine-cover .cover-tags span{font-size:.84rem}
+      .magazine-cover .cover-buttons a{font-size:.93rem}
+      .magazine-cover h2{font-size:1.12rem}
+      .magazine-cover .cover-footer{font-size:.65rem}
+      .magazine-topbar .brand-text small{font-size:.76rem}
+      .magazine-cover .cover-edition small{font-size:.59rem}
+      .magazine-cover .cover-edition strong{font-size:1.15rem}
+      .photo-carousel .carousel-caption strong{font-size:1.03rem}
+      .flight-card .flight-notice{font-size:.93rem}
+      .floating-actions a,.floating-actions button{font-size:.86rem}
+    }
   </style>
 </head>
 <body>
