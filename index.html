@@ -259,6 +259,45 @@
       }
     }
 
+
+    /* Portrait-phone editorial cover tuning:
+       keep the user's original waterfall image, zoom modestly with the falls centred,
+       and lift the headline onto the leaves instead of the dark lower extension. */
+    @media (max-width:760px) and (orientation:portrait){
+      .hero.magazine-cover{
+        padding-bottom:84px;
+      }
+      .magazine-cover .cover-photo img{
+        left:50%;
+        width:148%;
+        max-width:none;
+        height:100%;
+        object-fit:contain;
+        object-position:center 8%;
+        transform:translateX(-50%);
+        filter:none;
+      }
+      .magazine-cover .cover-body{
+        transform:translateY(-42px);
+        text-shadow:0 2px 13px rgba(10,22,15,.25);
+      }
+      .hero.magazine-cover:before{
+        background:linear-gradient(
+          180deg,
+          rgba(9,23,17,.53) 0%,
+          rgba(9,23,17,.08) 21%,
+          rgba(9,23,17,.19) 37%,
+          rgba(9,23,17,.49) 53%,
+          rgba(8,22,17,.81) 78%,
+          rgba(8,22,17,.94) 100%
+        );
+      }
+    }
+    @media (max-width:390px) and (orientation:portrait){
+      .magazine-cover .cover-body{transform:translateY(-36px)}
+      .magazine-cover .cover-photo img{width:145%;object-position:center 8%}
+    }
+
   </style>
 </head>
 <body>
