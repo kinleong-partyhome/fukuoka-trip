@@ -158,7 +158,7 @@
         linear-gradient(90deg,rgba(9,20,15,.40) 0%,rgba(9,20,15,.08) 83%,rgba(9,20,15,.15) 100%)
     }
     .magazine-cover .cover-photo{position:absolute;inset:0;z-index:0;background:linear-gradient(145deg,#af6346,#273e30)}
-    .magazine-cover .cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;filter:saturate(1.11) contrast(1.04);background:transparent}
+    .magazine-cover .cover-photo img{width:100%;height:100%;object-fit:cover;object-position:48% 46%;filter:saturate(1.10) contrast(1.06);background:transparent}
     .magazine-cover .cover-grain{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.64' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E")}
     .magazine-cover .cover-edition{
       position:absolute;z-index:3;right:7%;top:115px;width:104px;height:104px;
@@ -205,8 +205,8 @@
         display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
         padding:clamp(205px,30svh,340px) 23px 100px
       }
-      .magazine-cover .cover-photo img{object-position:54% 41%}
-      .hero.magazine-cover:before{background:linear-gradient(180deg,rgba(10,24,18,.62) 0%,rgba(10,24,18,.06) 22%,rgba(10,24,18,.12) 37%,rgba(10,24,18,.46) 49%,rgba(7,21,15,.91) 73%,rgba(7,21,15,.97) 100%)}
+      .magazine-cover .cover-photo img{object-position:47% 45%}
+      .hero.magazine-cover:before{background:linear-gradient(180deg,rgba(10,24,18,.52) 0%,rgba(10,24,18,.025) 22%,rgba(10,24,18,.07) 37%,rgba(10,24,18,.35) 49%,rgba(7,21,15,.79) 74%,rgba(7,21,15,.92) 100%)}
       .magazine-cover .cover-edition{right:19px;top:88px;width:79px;height:79px}
       .magazine-cover .cover-edition strong{font-size:1.1rem}
       .magazine-cover .cover-edition small{font-size:.46rem}
@@ -241,7 +241,7 @@
   </header>
   <main id="top">
     <section class="hero magazine-cover" id="cover" aria-label="九州秋日旅遊雜誌封面">
-      <div class="cover-photo"><img id="heroPic" alt="佐賀御船山樂園紅葉與湖景" fetchpriority="high" decoding="async"></div>
+      <div class="cover-photo"><img id="heroPic" alt="大分三日月瀑布溫泉附近滿幅紅、橙、粉紅楓葉" fetchpriority="high" decoding="async"></div>
       <div class="cover-grain" aria-hidden="true"></div>
       <div class="cover-edition" aria-hidden="true"><small>AUTUMN<br>EDITION</small><strong>九州</strong><small>2026</small></div>
       <div class="cover-body reveal in-view">
@@ -258,7 +258,7 @@
       </div>
       <div class="cover-footer">
         <span>FUKUOKA · OITA · KUMAMOTO · SAGA</span>
-        <a href="https://commons.wikimedia.org/wiki/File:Autumn_Mifuneyama_(49578027122).jpg" target="_blank" rel="noopener noreferrer">御船山楽園 · Photo by Raita Futo / CC BY 2.0 · cropped ↗</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Red_leaves_near_Mikazukinotaki_Hot_Spring_20141116.jpg" target="_blank" rel="noopener noreferrer">大分・三日月の滝付近 · Photo by そらみみ / CC BY-SA 4.0 · cropped ↗</a>
       </div>
       <a class="cover-scroll" href="#overview" aria-label="往下查看旅程概覽">SCROLL <span aria-hidden="true">↓</span></a>
     </section>
@@ -339,7 +339,7 @@
     'use strict';
     var photos = {
       hero:'Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG',
-      heroMain:'Autumn Mifuneyama (49578027122).jpg',
+      heroMain:'Red leaves near Mikazukinotaki Hot Spring 20141116.jpg',
       heroInset:'御船山楽園の紅葉 - panoramio.jpg',
       lake:'Lake Kinrin 20221022-1.jpg',
       nakasu:'Nakasu Yatai Stalls (19979437930).jpg',
@@ -352,8 +352,8 @@
       eel:'Yanagawa eel steamed in a basket.JPG',
       yanagawa:'Bridge in Yanagawa.jpg'
     };
-    var photoAuthors={hero:'そらみみ',heroMain:'Raita Futo',heroInset:'Yuji Sakamoto',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
-    var photoLicenses={hero:'CC BY-SA 4.0',heroMain:'CC BY 2.0',heroInset:'CC BY-SA 3.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
+    var photoAuthors={hero:'そらみみ',heroMain:'そらみみ',heroInset:'Yuji Sakamoto',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
+    var photoLicenses={hero:'CC BY-SA 4.0',heroMain:'CC BY-SA 4.0',heroInset:'CC BY-SA 3.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
     function wm(file,width){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+(width||1280);}
     function wiki(file){return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
     function map(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving';}
