@@ -298,6 +298,23 @@
       .magazine-cover .cover-photo img{width:145%;object-position:center 8%}
     }
 
+
+    /* Readability pass: slightly larger content text, especially on phones. */
+    .day-desc,.stop-main small,.day-bottom,.flight-details,.flight-note,
+    .toolcard p,.spotlight-text p,.overview p,.section-head p,.intro-copy,
+    .stay,.map-link,.route-link{font-size:max(1em, 0.88rem);line-height:1.8}
+    @media(max-width:760px){
+      .magazine-cover .cover-description{font-size:.82rem;line-height:1.85}
+      .magazine-cover .cover-japanese{font-size:.79rem}
+      .magazine-cover .cover-eyebrow{font-size:.64rem}
+      .magazine-cover .cover-tags span{font-size:.69rem}
+      .magazine-cover .cover-buttons a{font-size:.83rem}
+      .magazine-cover h2{font-size:1.07rem}
+      .day-desc,.stop-main small,.flight-details,.flight-note,.toolcard p,
+      .spotlight-text p,.section-head p{font-size:.89rem;line-height:1.8}
+      .stop-time,.day-top,.stay,.map-link,.route-link,.flight-place{font-size:.78rem}
+      .carousel-caption strong{font-size:1rem}
+    }
   </style>
 </head>
 <body>
