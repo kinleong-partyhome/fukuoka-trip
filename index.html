@@ -360,6 +360,10 @@
       .flight-card .flight-notice{font-size:.93rem}
       .floating-actions a,.floating-actions button{font-size:.86rem}
     }
+  /* Keep all five itinerary shortcuts accessible without horizontal clipping on phones. */
+  .floating-actions{max-width:calc(100vw - 24px);width:max-content;justify-content:space-evenly;gap:0;padding:7px 9px;bottom:max(16px, env(safe-area-inset-bottom))}
+  .floating-actions a{display:block;text-align:center;padding:10px clamp(7px, 2.25vw, 14px);font-size:clamp(.76rem, 3.15vw, .9rem);text-decoration:none}
+  .floating-actions a:focus-visible{outline:2px solid #fff;outline-offset:-3px;border-radius:40px}
   /* Mobile hero correction: single continuous photo, no blurred side panels.
      Fill the cover from the top, preserving the photograph and readable overlay. */
   .hero.magazine-cover{width:100%;max-width:none;margin:0;min-height:100svh;overflow:hidden}
@@ -535,7 +539,7 @@
     </section>
   </main>
   <footer class="footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">秋を旅する。</div><p class="footer-text">2026.11.12 — 11.18<br>少一點趕路，多一點記得。<br>Made for friends, with love from Kyushu.</p></div><div><span class="eyebrow">A SMALL NOTE</span><p class="footer-text">去回程 HX638／HX639 機票已購買；11/12–15大岳民宿及11/16–18鳥栖 ANA Holiday Inn 已訂；11/15溫泉酒店、餐廳及租車仍待確認。營業時間、車程、價格及交通安排出發前請再核對。</p></div></div><details style="margin-top:20px"><summary class="credits-toggle">圖片來源及授權（Wikimedia Commons）⌄</summary><div class="credits" id="credits"></div><p class="small">圖片由 Wikimedia Commons 提供，透過網頁版面裁切顯示；攝影者、授權條款及來源詳情請參閱各檔案連結。此網站沒有聲稱圖片顯示2026年實際紅葉情況。</p></details><p class="copyright">© 2026 KYUSHU AUTUMN JOURNAL · Travel notes in Traditional Chinese · 路線僅供參考</p></div></footer>
-  <div class="floating-actions" aria-label="快捷導覽"><a href="#flights">航班</a><a href="#itinerary">行程</a><a href="#unagi">鰻魚飯</a><a href="#essentials">還車</a><button type="button" data-share>分享 ↗</button></div>
+  <nav class="floating-actions" aria-label="行程快捷導覽"><a href="#flights">航班</a><a href="#itinerary">行程</a><a href="#stays">住宿</a><a href="#yanagawa-boats">遊船</a><a href="#unagi">鰻魚飯</a></nav>
   <script>
   (function(){
     'use strict';
