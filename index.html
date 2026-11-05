@@ -370,6 +370,17 @@
   .floating-actions a{display:flex;flex:1 1 0;min-width:0;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:6px 3px;line-height:1.2;font-size:clamp(.69rem,2.9vw,.84rem)}
   .floating-actions a svg{display:block;width:21px;height:21px;flex-shrink:0}
   .floating-actions a span{white-space:nowrap}
+  /* Muted slate-blue itinerary dock: distinct from the forest-green hero, without a bright accent. */
+  .floating-actions{
+    background:rgba(54,72,87,.96);
+    color:#fffaf1;
+    border:1px solid rgba(249,244,229,.34);
+    box-shadow:0 7px 25px rgba(21,35,46,.30),0 1px 5px rgba(21,35,46,.15);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
+  .floating-actions a{color:#fffaf1;transition:background .2s ease}
+  .floating-actions a:active,.floating-actions a:hover{background:rgba(255,255,255,.10);border-radius:40px}
   /* Mobile hero correction: single continuous photo, no blurred side panels.
      Fill the cover from the top, preserving the photograph and readable overlay. */
   .hero.magazine-cover{width:100%;max-width:none;margin:0;min-height:100svh;overflow:hidden}
