@@ -578,8 +578,8 @@
     };
     var photoAuthors={hero:'そらみみ',heroMain:'旅伴提供',heroInset:'Yuji Sakamoto',lake:'Suicasmo',nakasu:'Yoshikazu TAKADA',mojiko:'Kirin7739',karato:'Rick888chen',beppu:'Bpcon98',kurokawa:'hiroooooki（編修：トトト）',bridge:'そらみみ',aso:'STA3816',eel:'Sakaori',yanagawa:'Shii'};
     var photoLicenses={hero:'CC BY-SA 4.0',heroMain:'使用者提供照片',heroInset:'CC BY-SA 3.0',lake:'CC BY-SA 4.0',nakasu:'CC BY 2.0',mojiko:'CC0',karato:'CC BY-SA 4.0',beppu:'CC0',kurokawa:'CC BY 2.0',bridge:'CC BY-SA 4.0',aso:'CC BY-SA 3.0',eel:'CC BY 3.0',yanagawa:'Public domain'};
-    function wm(file,width){return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+(width||1280);}
-    function wiki(file){return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
+    function wm(file,width){if(/^https?:\/\//.test(file))return file;return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+(width||1280);}
+    function wiki(file){if(/^https?:\/\//.test(file))return file;return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
     function map(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving';}
     function route(stops){if(stops.length<2)return map(stops[0].q);var origin=stops[0].q, dest=stops[stops.length-1].q,mid=stops.slice(1,-1).map(function(x){return x.q;});return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(origin)+'&destination='+encodeURIComponent(dest)+'&travelmode=driving'+(mid.length?'&waypoints='+encodeURIComponent(mid.join('|')):'');}
     function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -641,7 +641,7 @@
     document.getElementById('daysList').innerHTML=days.map(renderDay).join('');
 
     // Daily photos curated from Wikimedia Commons. File-page attribution remains visible at the bottom.
-    var dailyGalleries = [[["Nakasu Yatai Stalls (19979437930).jpg","中洲屋台・博多夜色","Yoshikazu TAKADA","CC BY 2.0"],["Kushida Shrine from North Shimmon 20140927.jpg","櫛田神社・博多古韻","そらみみ","CC BY-SA 4.0"],["Entrance of Canal City Hakata near Kushida Shrine.jpg","博多運河城・街角","そらみみ","CC BY-SA 4.0"],["Ohori Park, Fukuoka.JPG","大濠公園・湖畔散步","Masgatotkaca","CC BY-SA 3.0"]],[["Ohori Park 20170505-4.jpg","大濠公園・湖邊咖啡時光","そらみみ","CC BY-SA 4.0"],["Ohori Park near No Theater.jpg","大濠公園・湖面與綠意","そらみみ","CC BY-SA 4.0"],["Ohori Park, Fukuoka.JPG","大濠公園・湖畔風景","Masgatotkaca","CC BY-SA 3.0"],["Nakasu Yatai Stalls (19979437930).jpg","福岡市・中洲街景（晚間參考）","Yoshikazu TAKADA","CC BY 2.0"]],[["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-4.JPG","一目八景・耶馬溪紅葉","そらみみ","CC BY-SA 4.0"],["Inside view of Karato Fish Market (2)20200113.jpg","唐戶市場・週末美食","Rick888chen","CC BY-SA 4.0"],["View from 2nd floor of Karato Market (Mojiko Retro Area).JPG","唐戶市場・關門海峽","そらみみ","CC BY-SA 4.0"],["Hitome-Hakkei in Shin-Yabakei Valley from observation deck 20141117-2.JPG","耶馬溪・山谷秋色","そらみみ","CC BY-SA 4.0"]],[["Umi Jigoku (Sea Hell) in Beppu.jpg","別府海地獄・湛藍溫泉","Bpcon98","CC0"],["Sea Hell Hot Spring 20171003-1.jpg","別府地熱・溫泉蒸氣","そらみみ","CC BY-SA 4.0"],["Beppu Jigoku-Meguri Street 20171003.jpg","別府・地獄巡禮街道","そらみみ","CC BY-SA 4.0"],["Yunotsubo-Yokocho in Yufuin Hot Spring.JPG","由布院・湯之坪小路","そらみみ","CC BY-SA 4.0"]],[["Lake Kinrin 20221022-1.jpg","由布院金鱗湖・秋日湖畔","Suicasmo","CC BY-SA 4.0"],["Kokonoe \"Yume\" Suspension Bridge 20131004.jpg","九重夢大吊橋・山谷景色","そらみみ","CC BY-SA 4.0"],["Kurokawa Onsen -温泉街.jpg","別府杉乃井酒店・傳統街道","hiroooooki（編修：トトト）","CC BY 2.0"],["Kurokawa-onsen.jpg","別府杉乃井酒店・露天風呂","Igorberger","CC BY-SA 3.0"]],[["Yanagawa eel steamed in a basket.JPG","柳川名物・鰻魚蒸籠飯示意（若松屋）","Sakaori","CC BY 3.0"],["A view of the five mountains of Aso from Daikanbo viewpoint.jpg","阿蘇大觀峰・火山群","STA3816","CC BY-SA 3.0"],["Yanagawa cruise ac (2).jpg","柳川川下り・水鄉慢遊","Asturio Cantabrio","CC BY-SA 4.0"],["Yanagawa cruise ac (7).jpg","柳川・小船遊河","Asturio Cantabrio","CC BY-SA 4.0"]],[["Fukuoka airport 20260910.jpg","福岡機場・2026年國際線航廈","Twotwo2019","CC BY 4.0"],["Fukuoka Airport FUK international departures 2025-03-30.jpg","福岡機場・2025年國際線出發區","ERIC SALARD","CC BY-SA 2.0"],["Fukuoka Airport International Terminal Departure Floor.jpg","福岡機場・2014年出發樓層舊照","Chihaya Sta","CC BY-SA 4.0"]]];
+    var dailyGalleries = [[["Fukuoka airport 20260910.jpg","福岡機場國際線・抵達九州","Twotwo2019","CC BY 4.0"],["Fukuoka Airport FUK international departures 2025-03-30.jpg","福岡機場・航廈環境","ERIC SALARD","CC BY-SA 2.0"],["Hakata Bay and Shikanoshima Island from Nagisabashi Bridge.jpg","福岡東區・海之中道及志賀島一帶","Wikimedia Commons 貢獻者","來源頁面所列授權"]],[["https://satoyama-travel.jp/mediagallery/mediaobjects/orig/1/146__.jpg","呑山觀音寺・秋日紅葉參道","里山トラベル","原網站展示","https://satoyama-travel.jp/databox/data.php/chikuzen-spot-nomiyamakannonji_ja/code"],["https://www.nomiyamakannonji.com/picture13.jpg","呑山觀音寺・寺門與紅葉","呑山観音寺","官方網站照片","https://www.nomiyamakannonji.com/news-momiji-info2013.html"],["https://www.nomiyamakannonji.com/webphoto/kyakuden.jpg","呑山觀音寺・紅葉庭園","呑山観音寺","官方網站照片","https://www.nomiyamakannonji.com/news-momiji-info2022.html"]],[["Road and ginkgo trees in Umino Nakamichi Seaside Park.JPG","海之中道海濱公園・銀杏大道","Wikimedia Commons 貢獻者","來源頁面所列授權"],["Pine grove in Umino Nakamichi Seaside Park and Shikanoshima Island.JPG","海之中道海濱公園・志賀島遠景","Wikimedia Commons 貢獻者","來源頁面所列授權"],["Genkai Sea from Shikanoshima Beach.jpg","志賀島海灘・玄界灘海景","Wikimedia Commons 貢獻者","來源頁面所列授權"]],[["Autumn Mifuneyama (49578027122).jpg","御船山樂園・秋季楓紅","Raita Futo","Wikimedia Commons 授權"],["Autumn Mifuneyama (49577294353).jpg","御船山樂園・紅葉景色","Raita Futo","Wikimedia Commons 授權"],["Ureshino Onsen 02.jpg","嬉野溫泉・溫泉街風景","Wikimedia Commons 貢獻者","來源頁面所列授權"]],[["Yanagawa cruise ac (2).jpg","柳川・川下り遊船","Asturio Cantabrio","CC BY-SA 4.0"],["Yanagawa eel steamed in a basket.JPG","柳川名物・鰻魚蒸籠飯（菜式示意）","Sakaori","CC BY 3.0"],["Tosu Premium Outlets 01.jpg","鳥栖 Premium Outlets・商場外觀","STA3816","CC BY-SA 4.0"]],[["Dazaifu Tenmangu.jpg","太宰府天滿宮・境內","Drivephotographer","CC0"],["Approach to Dazaifu Tenmagu shrine.JPG","太宰府天滿宮・表參道","Chris 73","CC BY-SA 3.0"],["Tosu Premium Outlets 02.jpg","鳥栖地區・購物商場（非 Costco 小郡）","Wikimedia Commons 貢獻者","來源頁面所列授權"]],[["Fukuoka airport 20260910.jpg","福岡機場・2026年國際線航廈","Twotwo2019","CC BY 4.0"],["Fukuoka Airport FUK international departures 2025-03-30.jpg","福岡機場・國際線出發區","ERIC SALARD","CC BY-SA 2.0"],["Fukuoka Airport International Terminal Departure Floor.jpg","福岡機場・出發樓層（歷史照片）","Chihaya Sta","CC BY-SA 4.0"]]];
     function installCarousels(){
       dailyGalleries.forEach(function(gallery,i){
         var card=document.getElementById('day-'+(i+1));
@@ -661,7 +661,7 @@
           '<span class="day-vertical">DAY '+String(i+1).padStart(2,'0')+' · '+esc(days[i].tag)+'</span>'+
           '<button type="button" class="carousel-arrow prev" aria-label="上一張照片">‹</button>'+
           '<button type="button" class="carousel-arrow next" aria-label="下一張照片">›</button>'+
-          '<div class="carousel-caption"><span class="day-image-credit">'+esc(days[i].dateText)+'</span><strong data-caption>'+esc(gallery[0][1])+'</strong><a class="photo-source" href="'+esc(wiki(gallery[0][0]))+'" target="_blank" rel="noopener noreferrer" data-source>照片來源／授權 ↗</a></div>'+
+          '<div class="carousel-caption"><span class="day-image-credit">'+esc(days[i].dateText)+'</span><strong data-caption>'+esc(gallery[0][1])+'</strong><a class="photo-source" href="'+esc(gallery[0][4]||wiki(gallery[0][0]))+'" target="_blank" rel="noopener noreferrer" data-source>照片來源／授權 ↗</a></div>'+
           '<div class="carousel-footer"><span class="carousel-number" data-counter>01 / '+String(gallery.length).padStart(2,'0')+'</span><div class="carousel-dots">'+dots+'</div><span class="carousel-hint">SWIPE ↔</span></div>';
         var slides=Array.from(holder.querySelectorAll('.carousel-slide'));
         var dotButtons=Array.from(holder.querySelectorAll('.carousel-dot'));
@@ -682,7 +682,7 @@
           dotButtons.forEach(function(btn,j){var on=j===next;btn.classList.toggle('active',on);btn.setAttribute('aria-current',on?'true':'false');});
           current=next;
           caption.textContent=gallery[next][1];
-          source.href=wiki(gallery[next][0]);
+          source.href=gallery[next][4]||wiki(gallery[next][0]);
           source.setAttribute('aria-label','查看 '+gallery[next][1]+' 相片來源及授權');
           counter.textContent=String(next+1).padStart(2,'0')+' / '+String(gallery.length).padStart(2,'0');
           if(manual)userChangedAt=Date.now();
@@ -717,15 +717,14 @@
       moreCredits.forEach(function(p){
         if(known.has(p[0]))return;
         known.add(p[0]);
-        var a=document.createElement('a');a.href=wiki(p[0]);a.target='_blank';a.rel='noopener noreferrer';
+        var a=document.createElement('a');a.href=p[4]||wiki(p[0]);a.target='_blank';a.rel='noopener noreferrer';
         a.textContent=p[0]+' — '+p[2]+' · '+p[3]+' · 網頁裁切展示 ↗';
         creditTarget.appendChild(a);
       });
     }
-    installCarousels();
-
     document.getElementById('dayNav').innerHTML=days.map(function(d,i){return '<a class="date-chip'+(i===0?' active':'')+'" href="#day-'+(i+1)+'"><span class="num">'+String(i+1).padStart(2,'0')+'</span><span>'+esc(d.date)+'</span></a>';}).join('');
     document.getElementById('credits').innerHTML=Object.keys(photos).filter(function(key){return key!=='heroMain';}).map(function(key){return '<a href="'+esc(wiki(photos[key]))+'" target="_blank" rel="noopener noreferrer">'+esc(photos[key])+' — '+esc(photoAuthors[key])+' · '+esc(photoLicenses[key])+' ↗</a>';}).join('')+'<a href="assets/kyushu-waterfall-original.jpg" target="_blank" rel="noopener noreferrer">首頁瀑布紅葉風景 — 旅伴提供原相 ↗</a>';
+    installCarousels();
     var store;try{store=window.localStorage;}catch(e){store=null;}
     document.querySelectorAll('input[data-day],input[data-prep]').forEach(function(input){var key=input.dataset.day!==undefined?'kyushu-day-'+input.dataset.day:'kyushu-prep-'+input.dataset.prep;try{input.checked=store&&store.getItem(key)==='1';}catch(e){}input.addEventListener('change',function(){try{if(store)store.setItem(key,input.checked?'1':'0');}catch(e){}});});
     function scrollProgress(){var max=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('pageProgress').style.width=(max>0?window.scrollY/max*100:0)+'%';}window.addEventListener('scroll',scrollProgress,{passive:true});scrollProgress();
