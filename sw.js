@@ -3,7 +3,7 @@
    - Own assets: serve the saved copy immediately, refresh it in the background.
    - Photos and fonts from other sites: keep whatever has been seen once.
    Bump VERSION if you ever need to force every phone to drop its saved copy. */
-const VERSION = 'kyushu-2026-v4';
+const VERSION = 'kyushu-2026-v5';
 const CORE = ['./', 'index.html', 'food-map.html', 'manifest.webmanifest',
   'assets/hero-mifuneyama-1920.webp', 'assets/badge-320.webp',
   'assets/otake-home-fixed.jpg', 'assets/icon-192.png'];
