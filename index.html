@@ -483,7 +483,7 @@
   </header>
   <main id="top">
     <section class="hero magazine-cover" id="cover" aria-label="九州秋日旅遊雜誌封面">
-      <div class="cover-photo"><img id="heroPic" alt="紅色楓葉環繞中央瀑布的秋日山谷風景" fetchpriority="high" decoding="async"></div>
+      <div class="cover-photo"><img id="heroPic" alt="御船山樂園池畔的紅色楓葉" fetchpriority="high" decoding="async"></div>
       <div class="cover-grain" aria-hidden="true"></div>
       <div class="cover-edition" aria-hidden="true"><img src="assets/badge-320.webp" alt="九州 2026 秋日和服雜誌徽章" width="132" height="132" decoding="async"></div>
       <div class="cover-body reveal in-view">
@@ -496,7 +496,7 @@
       </div>
       <div class="cover-footer">
         <span>FUKUOKA · SAGA · YANAGAWA</span>
-        <a href="assets/kyushu-waterfall-original.jpg" target="_blank" rel="noopener noreferrer">瀑布紅葉 · 旅伴提供原相 ↗</a>
+        <a href="https://commons.wikimedia.org/wiki/File:Autumn_Mifuneyama_(49577294353).jpg" target="_blank" rel="noopener noreferrer">御船山樂園紅葉 · Raita Futo／Wikimedia Commons ↗</a>
       </div>
       <a class="cover-scroll" href="#overview" aria-label="往下查看旅程概覽">SCROLL <span aria-hidden="true">↓</span></a>
     </section>
@@ -596,14 +596,14 @@
   (function(){
     'use strict';
     var photos = {
-      heroMain:'assets/kyushu-waterfall-original.jpg',
+      heroMain:'Autumn Mifuneyama (49577294353).jpg',
       heroInset:'御船山楽園の紅葉 - panoramio.jpg',
       ginkgo:'Road and ginkgo trees in Umino Nakamichi Seaside Park.JPG',
       eel:'Yanagawa eel steamed in a basket.JPG',
       yanagawa:'Bridge in Yanagawa.jpg'
     };
-    var photoAuthors={heroMain:'旅伴提供',heroInset:'Yuji Sakamoto',ginkgo:'Wikimedia Commons 貢獻者',eel:'Sakaori',yanagawa:'Shii'};
-    var photoLicenses={heroMain:'使用者提供照片',heroInset:'CC BY-SA 3.0',ginkgo:'來源頁面所列授權',eel:'CC BY 3.0',yanagawa:'Public domain'};
+    var photoAuthors={heroMain:'Raita Futo',heroInset:'Yuji Sakamoto',ginkgo:'Wikimedia Commons 貢獻者',eel:'Sakaori',yanagawa:'Shii'};
+    var photoLicenses={heroMain:'Wikimedia Commons 授權',heroInset:'CC BY-SA 3.0',ginkgo:'來源頁面所列授權',eel:'CC BY 3.0',yanagawa:'Public domain'};
     function wm(file,width){if(/^https?:\/\//.test(file))return file;return 'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width='+(width||1280);}
     function wiki(file){if(/^https?:\/\//.test(file))return file;return 'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file);}
     function map(q){return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode=driving';}
@@ -660,7 +660,7 @@
         {t:'13:25',name:'HX639 返香港',sub:'預計香港時間 16:40 抵達',q:'福岡空港 国際線旅客ターミナル'}
       ]}
     ];
-    function setPhoto(el,key){var file=photos[key];if(!el||!file)return;el.src=key==='heroMain'?file:wm(file,1280);el.onerror=function(){el.onerror=null;el.style.opacity=0;};}
+    function setPhoto(el,key){var file=photos[key];if(!el||!file)return;if(key==='heroMain'){el.onerror=function(){el.onerror=null;el.removeAttribute('srcset');el.src='assets/kyushu-waterfall-original.jpg';};el.sizes='(orientation:portrait) 150vh, 100vw';el.srcset='assets/hero-mifuneyama-1280.webp 1280w, assets/hero-mifuneyama-1920.webp 1920w';el.src='assets/hero-mifuneyama-1920.webp';return;}el.src=wm(file,1280);el.onerror=function(){el.onerror=null;el.style.opacity=0;};}
     setPhoto(document.getElementById('heroPic'),'heroMain');setPhoto(document.getElementById('eelPic'),'eel');setPhoto(document.getElementById('gallery1'),'heroInset');setPhoto(document.getElementById('gallery2'),'ginkgo');setPhoto(document.getElementById('gallery3'),'yanagawa');
     function renderDay(d,i){
       var st=d.stops.map(function(s,k){return '<div class="stop" data-stop="'+k+'"><span class="stop-time">'+esc(s.t)+'</span><div class="stop-main"><strong>'+esc(s.name)+'</strong><small>'+esc(s.sub)+'</small>'+(s.more?'<a class="stop-extra" href="'+esc(s.more[0])+'">'+esc(s.more[1])+'</a>':'')+'</div><a class="map-link" href="'+esc(map(s.q))+'" target="_blank" rel="noopener noreferrer" aria-label="Google Maps 導航到'+esc(s.name)+'">導航 ↗</a></div>';}).join('');
@@ -748,7 +748,7 @@
       });
     }
     document.getElementById('dayNav').innerHTML=days.map(function(d,i){return '<a class="date-chip'+(i===0?' active':'')+'" href="#day-'+(i+1)+'"><span class="num">'+String(i+1).padStart(2,'0')+'</span><span>'+esc(d.date)+'</span></a>';}).join('');
-    document.getElementById('credits').innerHTML=Object.keys(photos).filter(function(key){return key!=='heroMain';}).map(function(key){return '<a href="'+esc(wiki(photos[key]))+'" target="_blank" rel="noopener noreferrer">'+esc(photos[key])+' — '+esc(photoAuthors[key])+' · '+esc(photoLicenses[key])+' ↗</a>';}).join('')+'<a href="assets/kyushu-waterfall-original.jpg" target="_blank" rel="noopener noreferrer">首頁瀑布紅葉風景 — 旅伴提供原相 ↗</a>';
+    document.getElementById('credits').innerHTML=Object.keys(photos).map(function(key){return '<a href="'+esc(wiki(photos[key]))+'" target="_blank" rel="noopener noreferrer">'+esc(photos[key])+' — '+esc(photoAuthors[key])+' · '+esc(photoLicenses[key])+' ↗</a>';}).join('');
     installCarousels();
     var store;try{store=window.localStorage;}catch(e){store=null;}
     document.querySelectorAll('input[data-day],input[data-prep]').forEach(function(input){var key=input.dataset.day!==undefined?'kyushu-day-'+input.dataset.day:'kyushu-prep-'+input.dataset.prep;try{input.checked=store&&store.getItem(key)==='1';}catch(e){}input.addEventListener('change',function(){try{if(store)store.setItem(key,input.checked?'1':'0');}catch(e){}});});
